@@ -372,12 +372,13 @@ main {
 }
 
 .section {
-    height: 100vh;
+    height: 100vh; /* 各セクションの高さをビューポートの高さに固定 */
     display: flex;
     flex-direction: column;
     align-items: center;
     justify-content: center;
     padding: 2rem;
+    overflow: hidden; /* コンテンツがはみ出さないようにhiddenに設定 */
 }
 
 .hero {
@@ -462,31 +463,213 @@ main {
 }
 
 .skills-list,
-.works-grid,
-.contact-form {
-    width: 100%;
-    max-width: 600px;
-    text-align: center;
+#works {
+    /* worksセクション内のコンテンツがはみ出す可能性があるので、justify-contentを調整 */
+    justify-content: flex-start; /* コンテンツを上揃えにする */
+    padding-top: 5rem; /* タイトルとグリッドのための上部パディング */
+    padding-bottom: 2rem; /* 下部パディング */
 }
-
-.skills-list {
-    list-style: none;
-    display: flex;
-    justify-content: space-around;
-    margin-top: 1rem;
+#works {
+    /* worksセクション内のコンテンツがはみ出す可能性があるので、justify-contentを調整 */
+    justify-content: flex-start; /* コンテンツを上揃えにする */
+    padding-top: 5rem; /* タイトルとグリッドのための上部パディング */
+    padding-bottom: 2rem; /* 下部パディング */
 }
 
 .works-grid {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-    gap: 1.5rem;
-    margin-top: 1rem;
+    /* 縦2つ、横2つにするには、minmax(280px, 1fr) ではなく固定の2列にするか、
+       レスポンシブ対応をより細かく調整する必要があります。
+       ここでは、より確実に2x2にするための修正を加えます。 */
+    grid-template-columns: repeat(2, 1fr); /* 常に2列にする */
+    gap: 2rem;
+    margin-bottom: 2rem;
+    flex-grow: 1;
+    overflow-y: auto;
+    padding-right: 15px;
 }
 
-.work-item {
-    background: #1a1a1a;
-    padding: 1rem;
-    border-radius: 8px;
+/* オーバーレイ内の .works-grid-overlay も同様に修正 */
+.works-grid-overlay {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr); /* オーバーレイも2列にする */
+    gap: 2rem;
+    padding-top: 1rem;
+}
+/* オーバーレイのスタイル */
+.works-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.9); /* 半透明の黒背景 */
+    display: none; /* 初期状態では非表示 */
+    justify-content: center;
+    align-items: center;
+    z-index: 9999; /* 他の要素より手前に表示 */
+    backdrop-filter: blur(8px); /* 背景のぼかし */
+}
+
+.works-overlay-content {
+    background: #0d0d0d;
+    border-radius: 15px;
+    padding: 2rem;
+    width: 90%;
+    max-width: 1200px;
+    max-height: 90vh; /* ビューポートの高さに合わせて最大高さを設定 */
+    overflow-y: auto; /* コンテンツがオーバーフローした場合にスクロール可能にする */
+    position: relative;
+    box-shadow: 0 0 50px rgba(0, 255, 136, 0.4);
+}
+
+.project-card {
+    background: rgba(255, 255, 255, 0.05);
+    border-radius: 15px;
+    padding: 1.5rem;
+    backdrop-filter: blur(10px);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    transition: all 0.3s ease;
+    cursor: pointer;
+    overflow: hidden;
+}
+
+.project-card:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 20px 40px rgba(0, 255, 136, 0.2);
+    border-color: #00ff88;
+}
+
+.project-image {
+    width: 100%;
+    height: 200px;
+    background: linear-gradient(45deg, #667eea 0%, #764ba2 100%);
+    border-radius: 10px;
+    margin-bottom: 1rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 3rem;
+    color: white;
+    position: relative;
+    overflow: hidden;
+}
+
+.project-image::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: linear-gradient(45deg, transparent 30%, rgba(255, 255, 255, 0.1) 50%, transparent 70%);
+    transform: translateX(-100%);
+    transition: transform 0.6s ease;
+}
+
+.project-card:hover .project-image::before {
+    transform: translateX(100%);
+}
+
+.project-card:nth-child(1) .project-image {
+    background: linear-gradient(45deg, #667eea 0%, #764ba2 100%);
+}
+
+.project-card:nth-child(2) .project-image {
+    background: linear-gradient(45deg, #f093fb 0%, #f5576c 100%);
+}
+
+.project-card:nth-child(3) .project-image {
+    background: linear-gradient(45deg, #4facfe 0%, #00f2fe 100%);
+}
+
+.project-card:nth-child(4) .project-image {
+    background: linear-gradient(45deg, #43e97b 0%, #38f9d7 100%);
+}
+
+.project-title {
+    font-size: 1.5rem;
+    font-weight: bold;
+    margin-bottom: 0.5rem;
+    color: #00ff88;
+}
+
+.project-description {
+    color: #cccccc;
+    line-height: 1.6;
+}
+
+.close-btn {
+    position: absolute;
+    top: 1rem;
+    right: 1.5rem;
+    color: #fff;
+    font-size: 2.5rem;
+    cursor: pointer;
+    transition: color 0.3s ease;
+}
+
+.close-btn:hover {
+    color: #00ff88;
+}
+
+.works-grid-overlay {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 2rem;
+    padding-top: 1rem; /* タイトルとのスペース */
+}
+.view-all-container {
+    text-align: center;
+    margin-top: 3rem;
+}
+
+.view-all-btn {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+    background: linear-gradient(45deg, #00ff88, #00ccff);
+    color: white;
+    padding: 1rem 2rem;
+    border-radius: 50px;
+    text-decoration: none;
+    font-weight: 600;
+    transition: all 0.3s ease;
+    border: none;
+    cursor: pointer;
+}
+
+.view-all-btn:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 10px 30px rgba(0, 255, 136, 0.3);
+}
+@media (max-width: 768px) {
+    /* 768px以下の画面では、worksセクションのグリッドは1列にする */
+    .works-grid {
+        grid-template-columns: 1fr; /* 小さい画面では1列表示 */
+    }
+
+    .works-overlay-content {
+        width: 95%;
+        padding: 1.5rem;
+    }
+    /* オーバーレイ内のグリッドは、より小さい画面（例えば480px以下）で1列にするか、
+       ここではシンプルにそのまま2列を維持することも可能です。
+       もしオーバーレイも小さい画面で1列にしたい場合は以下を追加。 */
+    .works-grid-overlay {
+        grid-template-columns: 1fr; /* 小さい画面では1列表示 */
+    }
+}
+
+/* さらに小さい画面（例: スマートフォンのポートレートモード）で
+   worksセクションの表示を調整したい場合 */
+@media (max-width: 480px) {
+    .works-grid {
+        grid-template-columns: 1fr; /* 非常に小さい画面ではworksセクションも1列に */
+    }
+    .works-grid-overlay {
+        grid-template-columns: 1fr; /* 非常に小さい画面ではオーバーレイも1列に */
+    }
 }
 
 .contact-form {

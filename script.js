@@ -10,6 +10,27 @@ document.addEventListener('DOMContentLoaded', () => {
             box.classList.add('glow');
         });
     })
+    const viewAllBtn = document.querySelector('.view-all-btn');
+    const worksOverlay = document.getElementById('works-overlay');
+    const closeBtn = document.querySelector('.close-btn');
+
+    // View All ボタンがクリックされたらオーバーレイを表示
+    viewAllBtn.addEventListener('click', function(e) {
+        e.preventDefault();
+        worksOverlay.style.display = 'flex';
+    });
+
+    // 閉じるボタンがクリックされたらオーバーレイを非表示
+    closeBtn.addEventListener('click', function() {
+        worksOverlay.style.display = 'none';
+    });
+
+    // オーバーレイの外側をクリックしたら非表示（オプション）
+    worksOverlay.addEventListener('click', function(e) {
+        if (e.target === worksOverlay) {
+            worksOverlay.style.display = 'none';
+        }
+    });
     const updateActiveDot = () => {
         dots.forEach(dot =>
             dot.classList.toggle('active', parseInt(dot.dataset.index, 10) === currentIdx)
