@@ -14,7 +14,6 @@ body {
     scroll-snap-type: y mandatory;
     scroll-behavior: smooth;
     font-family: 'Segoe UI', Tahoma, sans-serif;
-    background: #0d0d0d;
     color: #fff;
 }
 
@@ -28,14 +27,13 @@ main {
 
 .section {
     height: 100vh;
-    /* 各セクションの高さをビューポートの高さに固定 */
     display: flex;
     flex-direction: column;
     align-items: center;
     justify-content: center;
     padding: 2rem;
     overflow: hidden;
-    /* コンテンツがはみ出さないようにhiddenに設定 */
+    background: #0d0d0d;
 }
 
 .skill-title {
@@ -803,13 +801,9 @@ main {
     vertical-align: middle;
 }
 
-/* ----------------------------------------------------- */
-/* Section Specific Styles */
-/* ----------------------------------------------------- */
-.hero {
-    background: #0d0d0d;
+.hero{
+    background: none;
 }
-
 .hero h1 {
     font-size: 3rem;
     margin-bottom: 1rem;
@@ -858,15 +852,11 @@ main {
     width: 100%;
     height: 100%;
     background: rgba(0, 0, 0, 0.9);
-    /* 半透明の黒背景 */
     display: none;
-    /* 初期状態では非表示 */
     justify-content: center;
     align-items: center;
     z-index: 9999;
-    /* 他の要素より手前に表示 */
     backdrop-filter: blur(8px);
-    /* 背景のぼかし */
 }
 
 .works-overlay-content {
@@ -909,7 +899,15 @@ main {
     background: linear-gradient(45deg, #00ff88, #00d4ff);
     box-shadow: 0 0 20px rgba(0, 255, 136, 0.7);
 }
-
+#webgl {
+    position: fixed; /* この行を追加 */
+    top: 0;          /* この行を追加 */
+    left: 0;         /* この行を追加 */
+    width: 100vw;
+    height: 100vh;
+    z-index: -1;
+    display: block;
+}
 /* ----------------------------------------------------- */
 /* Utility / Helper Styles */
 /* ----------------------------------------------------- */

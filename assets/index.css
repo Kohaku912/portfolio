@@ -5,7 +5,15 @@
     border-style: solid;
     border-width: 0
 }
-
+#webgl {
+    position: fixed; /* この行を追加 */
+    top: 0;          /* この行を追加 */
+    left: 0;         /* この行を追加 */
+    width: 100vw;
+    height: 100vh;
+    z-index: -1;
+    display: block;
+}
 html {
     line-height: 1.15;
     -webkit-text-size-adjust: 100%;

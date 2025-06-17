@@ -6,10 +6,13 @@ void main() {
     gl_Position = vec4(position, 1.0);
 }`, k = `precision mediump float;
 
-const int TRAIL_LENGTH = 15;
+const int TRAIL_LENGTH = 8;
 const float EPS = 1e-4;
 const int ITR = 16;
 const float PI = acos(-1.0);
+const int NUM_STATIC = 2;
+uniform vec3 uStaticPos[NUM_STATIC];
+uniform float uStaticRadius[NUM_STATIC];
 
 uniform float uTime;
 uniform vec2 uResolution;
@@ -77,20 +80,23 @@ float map(vec3 p) {
     for (int i = 0; i < TRAIL_LENGTH; i++) {
         float fi = float(i);
         vec2 pointerTrail = uPointerTrail[i] * uResolution / min(uResolution.x, uResolution.y);
-
         float sphere = sdSphere(
                 translate(p, vec3(pointerTrail, .0)),
                 radius - baseRadius * fi
             );
-
         d = smoothMin(d, sphere, k);
     }
 
-    float sphere = sdSphere(translate(p, vec3(1.0, -0.25, 0.0)), 0.55);
-    d = smoothMin(d, sphere, k);
+    for (int j = 0; j < NUM_STATIC; j++) {
+        float rs = uStaticRadius[j];
+        vec3 ps = uStaticPos[j];
+        float s = sdSphere(translate(p, ps), rs);
+        d = smoothMin(d, s, k);
+    }
 
     return d;
 }
+
 
 vec3 generateNormal(vec3 p) {
     return normalize(vec3(
@@ -103,20 +109,16 @@ float fresnel(vec3 viewDir, vec3 normal) {
     return pow(1.0 - max(dot(viewDir, normal), 0.0), 3.0) * 0.5;
 }
 vec3 dropletColor(vec3 normal, vec3 rayDir) {
-    // より濃いブルー系に調整
-    vec3 baseColor   = vec3(0.2, 0.4, 0.8);    // 深みのあるブルー
-    vec3 accentColor = vec3(0.1, 0.2, 0.9);    // コントラストのある濃い青
+    vec3 baseColor   = vec3(0.2, 0.4, 0.8);
+    vec3 accentColor = vec3(0.1, 0.2, 0.9);
 
-    // ノイズはそのまま柔らかく
     float n = noise3D(normal * 2.0 + uTime * 0.5) * 0.5 
             + noise3D(normal * 4.0 - uTime * 0.5) * 0.25;
 
-    // ベースとアクセントをミックス
     vec3 color = mix(baseColor, accentColor, n);
 
-    // ハイライトに Fresnel（強度アップ）
     float f = fresnel(rayDir, normal);
-    color += f * 0.3;  // 0.2 → 0.3 にして光沢を強調
+    color += f * 0.3;
 
     return color;
 }
@@ -140,4 +142,4 @@ void main() {
     vec3 finalColor = pow(color, vec3(1.0 / 2.2));
     gl_FragColor = vec4(finalColor, 1.0);
 }
-`, a = class a { constructor() { t(this, "scene"); t(this, "camera"); t(this, "uniforms"); t(this, "trailLength"); t(this, "pointerTrail"); this.scene = new y, this.camera = new A(a.CAMERA_PARAM.fovy, a.CAMERA_PARAM.aspect, a.CAMERA_PARAM.near, a.CAMERA_PARAM.far), this.trailLength = 15, this.pointerTrail = Array.from({ length: this.trailLength }, () => new l(0, 0)), this.uniforms = { uTime: { value: i.time }, uResolution: { value: new l(i.width, i.height) }, uPointerTrail: { value: this.pointerTrail } } } init() { this.camera.position.copy(a.CAMERA_PARAM.position), this.camera.lookAt(a.CAMERA_PARAM.lookAt); const e = new T(2, 2), s = new E({ vertexShader: D, fragmentShader: k, wireframe: !1, uniforms: this.uniforms }), c = new C(e, s); this.scene.add(c) } resize() { this.camera.aspect = i.aspect, this.camera.updateProjectionMatrix(), this.uniforms && this.uniforms.uResolution.value.set(i.width, i.height) } render() { this.uniforms && (this.uniforms.uTime.value = i.time), i.renderer.render(this.scene, this.camera) } update() { this.updatePointerTrail(), this.render() } updatePointerTrail() { for (let e = this.trailLength - 1; e > 0; e--)this.pointerTrail[e].copy(this.pointerTrail[e - 1]); this.pointerTrail[0].copy(v.coords) } }; t(a, "CAMERA_PARAM", { fovy: 60, aspect: window.innerWidth / window.innerHeight, near: .1, far: 50, position: new u(0, 0, 10), lookAt: new u(0, 0, 0) }); let f = a; class S { constructor(e) { t(this, "output"); t(this, "wrapper"); this.wrapper = e, this.output = new f, this.resize = this.resize.bind(this), this.render = this.render.bind(this), window.addEventListener("resize", this.resize) } init() { i.init(), v.init(), this.output.init() } setup() { this.wrapper.appendChild(i.renderer.domElement), this.resize(), i.clock.start() } render() { requestAnimationFrame(this.render), i.update(), this.output.update() } resize() { i.resize(), this.output.resize() } } window.addEventListener("DOMContentLoaded", () => { const o = document.querySelector("#webgl"); if (!(o instanceof HTMLElement)) { console.error('Failed to find a valid element with the ID "webgl".'); return } const e = new S(o); e.init(), e.setup(), e.render() }, !1);
+`, a = class a { constructor() { t(this, "scene"); t(this, "camera"); t(this, "uniforms"); t(this, "trailLength"); t(this, "pointerTrail"); this.scene = new y, this.camera = new A(a.CAMERA_PARAM.fovy, a.CAMERA_PARAM.aspect, a.CAMERA_PARAM.near, a.CAMERA_PARAM.far), this.trailLength = 15, this.pointerTrail = Array.from({ length: this.trailLength }, () => new l(0, 0)), this.uniforms = { uTime: { value: i.time }, uResolution: { value: new l(i.width, i.height) }, uPointerTrail: { value: this.pointerTrail },uStaticPos:{value:[new u( 1.0,  0.2, 0.0 ),new u( -1.0,  0.0, 0.0 )]},uStaticRadius:{value:[0.5,0.3]} } } init() { this.camera.position.copy(a.CAMERA_PARAM.position), this.camera.lookAt(a.CAMERA_PARAM.lookAt); const e = new T(2, 2), s = new E({ vertexShader: D, fragmentShader: k, wireframe: !1, uniforms: this.uniforms }), c = new C(e, s); this.scene.add(c) } resize() { this.camera.aspect = i.aspect, this.camera.updateProjectionMatrix(), this.uniforms && this.uniforms.uResolution.value.set(i.width, i.height) } render() { this.uniforms && (this.uniforms.uTime.value = i.time), i.renderer.render(this.scene, this.camera) } update() { this.updatePointerTrail(), this.render() } updatePointerTrail() { for (let e = this.trailLength - 1; e > 0; e--)this.pointerTrail[e].copy(this.pointerTrail[e - 1]); this.pointerTrail[0].copy(v.coords) } }; t(a, "CAMERA_PARAM", { fovy: 60, aspect: window.innerWidth / window.innerHeight, near: .1, far: 50, position: new u(0, 0, 10), lookAt: new u(0, 0, 0) }); let f = a; class S { constructor(e) { t(this, "output"); t(this, "wrapper"); this.wrapper = e, this.output = new f, this.resize = this.resize.bind(this), this.render = this.render.bind(this), window.addEventListener("resize", this.resize) } init() { i.init(), v.init(), this.output.init() } setup() { this.wrapper.appendChild(i.renderer.domElement), this.resize(), i.clock.start() } render() { requestAnimationFrame(this.render), i.update(), this.output.update() } resize() { i.resize(), this.output.resize() } } window.addEventListener("DOMContentLoaded", () => { const o = document.querySelector("#webgl"); if (!(o instanceof HTMLElement)) { console.error('Failed to find a valid element with the ID "webgl".'); return } const e = new S(o); e.init(), e.setup(), e.render() }, !1);
