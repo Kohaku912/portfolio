@@ -1,34 +1,114 @@
 document.addEventListener('DOMContentLoaded', () => {
     const main = document.querySelector('main');
     const dots = document.querySelectorAll('.dot');
+    const skillTitle = document.querySelector('.skill-title');
     const total = dots.length;
     let currentIdx = 0;
     let isAutoScrolling = false;
     let touchStartY = 0;
-    document.querySelectorAll(".glow-box").forEach(box => {
+    let overlay = false;
+    
+    const glowBoxes = document.querySelectorAll(".glow-box");
+
+    glowBoxes.forEach(box => {
         box.addEventListener('mouseover', () => {
+            if(box.classList.contains('glow')) return;
             box.classList.add('glow');
+            positionSkillTitle(box, skillTitle);
         });
-    })
+
+        box.addEventListener('touchstart', (e) => {
+            box.classList.add('glow');
+            positionSkillTitle(box, skillTitle);
+            // Prevent scrolling when tapping on a glow-box
+            e.preventDefault();
+        }, { passive: false });
+
+        // Mouseout/Touchend event to remove glowing effect and reset skill-title position
+        box.addEventListener('mouseleave', () => {
+            box.classList.remove('glow');
+            resetSkillTitlePosition(skillTitle);
+        });
+
+        box.addEventListener('touchend', () => {
+            box.classList.remove('glow');
+            resetSkillTitlePosition(skillTitle);
+        });
+
+        // Touchmove to handle cases where touch starts on a box but moves away
+        box.addEventListener('touchmove', () => {
+            box.classList.remove('glow');
+            resetSkillTitlePosition(skillTitle);
+        });
+    });
+
     const viewAllBtn = document.querySelector('.view-all-btn');
     const worksOverlay = document.getElementById('works-overlay');
     const closeBtn = document.querySelector('.close-btn');
 
     // View All ボタンがクリックされたらオーバーレイを表示
-    viewAllBtn.addEventListener('click', function(e) {
+    viewAllBtn.addEventListener('click', function (e) {
         e.preventDefault();
         worksOverlay.style.display = 'flex';
+        overlay = true;
     });
 
     // 閉じるボタンがクリックされたらオーバーレイを非表示
-    closeBtn.addEventListener('click', function() {
+    closeBtn.addEventListener('click', function () {
         worksOverlay.style.display = 'none';
+        overlay = false;
+    });
+
+    worksOverlay.addEventListener('click', function (e) {
+        if (e.target === worksOverlay) {
+            worksOverlay.style.display = 'none';
+            overlay = false;
+        }
+    });
+
+    function positionSkillTitle(targetBox, skillTitleElement) {
+        const boxRect = targetBox.getBoundingClientRect();
+        skillTitleElement.textContent = Array.from(targetBox.classList).find(className => className.startsWith('skill-'))?.replace('skill-', '') || null;
+        skillTitleElement.style.position = 'absolute';
+        skillTitleElement.style.left = `${boxRect.left + boxRect.width / 2}px`;
+        skillTitleElement.style.top = `${boxRect.top - skillTitleElement.offsetHeight - 10}px`; // 10px buffer
+        skillTitleElement.style.transform = 'translateX(-50%)'; // Center horizontally
+        skillTitleElement.style.opacity = '1';
+        skillTitleElement.style.visibility = 'visible';
+    }
+
+    // Function to reset skill-title position
+    function resetSkillTitlePosition(skillTitleElement) {
+        // Reset to its original CSS-defined position (usually hidden or off-screen)
+        skillTitleElement.style.opacity = '0';
+        skillTitleElement.style.visibility = 'hidden';
+        skillTitleElement.style.position = ''; // Remove absolute positioning
+        skillTitleElement.style.left = '';
+        skillTitleElement.style.top = '';
+        skillTitleElement.style.transform = '';
+    }
+
+    // Initial state: hide skill-title
+    resetSkillTitlePosition(skillTitle);
+
+    // View All ボタンがクリックされたらオーバーレイを表示
+    viewAllBtn.addEventListener('click', function (e) {
+        e.preventDefault();
+        worksOverlay.style.display = 'flex';
+        overlay = true;
+    });
+
+    // 閉じるボタンがクリックされたらオーバーレイを非表示
+    closeBtn.addEventListener('click', function () {
+        worksOverlay.style.display = 'none';
+        overlay = false;
     });
 
     // オーバーレイの外側をクリックしたら非表示（オプション）
-    worksOverlay.addEventListener('click', function(e) {
+    worksOverlay.addEventListener('click', function (e) {
         if (e.target === worksOverlay) {
             worksOverlay.style.display = 'none';
+            overlay = false;
         }
     });
     const updateActiveDot = () => {
@@ -46,6 +126,7 @@ document.addEventListener('DOMContentLoaded', () => {
         setTimeout(() => isAutoScrolling = false, 400);
     };
     main.addEventListener('wheel', e => {
+        if (overlay) return;
         e.preventDefault();
         if (isAutoScrolling) return;
         if (e.deltaY > 0) goTo(currentIdx + 1);
@@ -81,3 +162,25 @@ document.addEventListener('DOMContentLoaded', () => {
     updateActiveDot();
     main.scrollTo({ top: 0, behavior: 'instant' });
 });
+function openAchievementDetail(achievementId) {
+    // Create achievement detail URLs
+    const achievementUrls = {
+        'webappcontest-winter-2025': 'https://progedu.github.io/webappcontest/2024/winter/entry/result.html',
+        'atcoder-brown': 'https://atcoder.jp/users/tatuki912',
+    };
+
+    // Add click animation
+    event.currentTarget.style.transform = 'scale(0.98)';
+    setTimeout(() => {
+        event.currentTarget.style.transform = '';
+    }, 150);
+
+    // Navigate to detail page after animation
+    setTimeout(() => {
+        if (achievementUrls[achievementId]) {
+            window.open(achievementUrls[achievementId], '_blank');
+        } else {
+            console.log('Achievement detail page not found for:', achievementId);
+        }
+    }, 200);
+}
