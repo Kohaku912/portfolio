@@ -62,9 +62,9 @@ main {
 }
 .skills-list,
 .works-title {
-  font-size: 3rem;
+  font-size: 2.5rem;
   font-weight: bold;
-  margin-bottom: 3rem;
+  margin-bottom: 2rem;
   background: linear-gradient(45deg, #00ff88, #00d4ff);
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
@@ -73,22 +73,21 @@ main {
 }
 #works {
   justify-content: flex-start;
-  padding-top: 5rem;
-  padding-bottom: 2rem;
+  padding-top: 2rem;
+  padding-bottom: 1rem;
 }
 .works-grid {
   display: grid;
   grid-template-columns: repeat(2, 1fr);
-  gap: 2rem;
-  padding: 1rem;
-  margin: 1rem auto;
+  gap: 1rem;
+  padding: 0.5rem;
+  margin: 0.5rem auto;
   flex-grow: 1;
   max-width: 1200px;
-  max-height: 100%;
+  max-height: calc(100vh - 200px);
   overflow-y: auto;
   padding-right: 15px;
 }
-
 .works-grid-overlay {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
@@ -357,7 +356,7 @@ main {
 .project-card {
   background: rgba(255, 255, 255, 0.05);
   border-radius: 15px;
-  padding: 1.5rem;
+  padding: 1rem;
   backdrop-filter: blur(10px);
   border: 1px solid rgba(255, 255, 255, 0.1);
   transition: all 0.3s ease;
@@ -372,9 +371,9 @@ main {
 }
 .project-image {
   width: 100%;
-  height: 170px;
+  height: 120px;
   border-radius: 10px;
-  margin-bottom: 0.6rem;
+  margin-bottom: 0.5rem;
   overflow: hidden;
   display: flex;
   align-items: center;
@@ -419,16 +418,16 @@ main {
   background: linear-gradient(45deg, #43e97b 0%, #38f9d7 100%);
 }
 .project-title {
-  font-size: 1.25rem;
+  font-size: 1.1rem;
   font-weight: bold;
-  margin-bottom: 0.4rem;
+  margin-bottom: 0.3rem;
   color: #00ff88;
 }
 .project-description {
   color: #cccccc;
-  line-height: 1.5;
-  font-size: 0.9rem;
-  margin-bottom: 1rem;
+  line-height: 1.4;
+  font-size: 0.8rem;
+  margin-bottom: 0.8rem;
 }
 .project-tags {
   display: flex;
