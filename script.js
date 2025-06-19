@@ -8,6 +8,7 @@ document.addEventListener('DOMContentLoaded', () => {
     let isAutoScrolling = false;
     let touchStartY = 0;
     let overlay = false;
+    let touchHandled = false;
     
     const glowBoxes = document.querySelectorAll(".glow-box");
 
@@ -124,20 +125,23 @@ document.addEventListener('DOMContentLoaded', () => {
 
     main.addEventListener('touchstart', e => {
         touchStartY = e.touches[0].clientY;
+        touchHandled = false;          // ← ジェスチャー開始時にリセット
     }, { passive: false });
 
     main.addEventListener('touchmove', e => {
         e.preventDefault();
-        if (isAutoScrolling) return;
+        if (overlay || isAutoScrolling || touchHandled) return;  // ← フラグチェック追加
+
         const deltaY = touchStartY - e.touches[0].clientY;
         if (Math.abs(deltaY) < 10) return;
+
         if (deltaY > 0) {
             goTo(currentIdx + 1);
-            touchStartY = e.touches[0].clientY;
         } else {
             goTo(currentIdx - 1);
-            touchStartY = e.touches[0].clientY;
         }
+
+        touchHandled = true;           // ← 一度だけスライドさせたら true に
     }, { passive: false });
 
     dots.forEach(dot => {
