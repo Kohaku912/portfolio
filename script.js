@@ -10,7 +10,7 @@ document.addEventListener('DOMContentLoaded', () => {
     let overlay = false;
     let touchHandled = false;
     let lastWheelTime = 0;
-    const WHEEL_DELAY = 500;
+    const WHEEL_DELAY = 1000;
     
     const glowBoxes = document.querySelectorAll(".glow-box");
 
