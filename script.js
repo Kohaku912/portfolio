@@ -8,9 +8,6 @@ document.addEventListener('DOMContentLoaded', () => {
     let isAutoScrolling = false;
     let touchStartY = 0;
     let overlay = false;
-    let touchHandled = false;
-    let lastWheelTime = 0;
-    const WHEEL_DELAY = 1000;
     
     const glowBoxes = document.querySelectorAll(".glow-box");
 
@@ -115,43 +112,35 @@ document.addEventListener('DOMContentLoaded', () => {
         currentIdx = idx;
         updateActiveDot();
         main.scrollTo({ top: idx * window.innerHeight, behavior: 'smooth' });
-        setTimeout(() => isAutoScrolling = false, 400);
+        setTimeout(() => isAutoScrolling = false, 1500);
     };
     main.addEventListener('wheel', e => {
         if (overlay) return;
         e.preventDefault();
-
-        const now = Date.now();
-        if (isAutoScrolling || (now - lastWheelTime) < WHEEL_DELAY) return;
-        lastWheelTime = now;
-
-        if (e.deltaY > 0) {
-            goTo(currentIdx + 1);
-        } else if (e.deltaY < 0) {
-            goTo(currentIdx - 1);
-        }
+        if (isAutoScrolling) return;
+        console.log('deltaY:', e);
+        if (e.deltaY > 0) goTo(currentIdx + 1);
+        else if (e.deltaY < 0) goTo(currentIdx - 1);
     }, { passive: false });
 
     main.addEventListener('touchstart', e => {
         touchStartY = e.touches[0].clientY;
-        touchHandled = false;
     }, { passive: false });
 
     main.addEventListener('touchmove', e => {
         e.preventDefault();
-        if (overlay || isAutoScrolling || touchHandled) return;
-
+        if (isAutoScrolling) return;
         const deltaY = touchStartY - e.touches[0].clientY;
         if (Math.abs(deltaY) < 10) return;
-
         if (deltaY > 0) {
             goTo(currentIdx + 1);
+            touchStartY = e.touches[0].clientY;
         } else {
             goTo(currentIdx - 1);
+            touchStartY = e.touches[0].clientY;
         }
-
-        touchHandled = true;
     }, { passive: false });
+
     dots.forEach(dot => {
         dot.addEventListener('click', () => {
             const idx = parseInt(dot.dataset.index, 10);
