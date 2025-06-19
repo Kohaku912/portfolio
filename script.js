@@ -9,6 +9,8 @@ document.addEventListener('DOMContentLoaded', () => {
     let touchStartY = 0;
     let overlay = false;
     let touchHandled = false;
+    let lastWheelTime = 0;
+    const WHEEL_DELAY = 500;
     
     const glowBoxes = document.querySelectorAll(".glow-box");
 
@@ -118,19 +120,26 @@ document.addEventListener('DOMContentLoaded', () => {
     main.addEventListener('wheel', e => {
         if (overlay) return;
         e.preventDefault();
-        if (isAutoScrolling) return;
-        if (e.deltaY > 0) goTo(currentIdx + 1);
-        else if (e.deltaY < 0) goTo(currentIdx - 1);
+
+        const now = Date.now();
+        if (isAutoScrolling || (now - lastWheelTime) < WHEEL_DELAY) return;
+        lastWheelTime = now;
+
+        if (e.deltaY > 0) {
+            goTo(currentIdx + 1);
+        } else if (e.deltaY < 0) {
+            goTo(currentIdx - 1);
+        }
     }, { passive: false });
 
     main.addEventListener('touchstart', e => {
         touchStartY = e.touches[0].clientY;
-        touchHandled = false;          // ← ジェスチャー開始時にリセット
+        touchHandled = false;
     }, { passive: false });
 
     main.addEventListener('touchmove', e => {
         e.preventDefault();
-        if (overlay || isAutoScrolling || touchHandled) return;  // ← フラグチェック追加
+        if (overlay || isAutoScrolling || touchHandled) return;
 
         const deltaY = touchStartY - e.touches[0].clientY;
         if (Math.abs(deltaY) < 10) return;
@@ -141,9 +150,8 @@ document.addEventListener('DOMContentLoaded', () => {
             goTo(currentIdx - 1);
         }
 
-        touchHandled = true;           // ← 一度だけスライドさせたら true に
+        touchHandled = true;
     }, { passive: false });
-
     dots.forEach(dot => {
         dot.addEventListener('click', () => {
             const idx = parseInt(dot.dataset.index, 10);
