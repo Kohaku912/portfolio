@@ -482,6 +482,36 @@ main {
   transform: translateY(-2px);
   box-shadow: 0 5px 15px rgba(0, 255, 136, 0.3);
 }
+.github-link.disable {
+  background: rgba(100, 100, 100, 0.1);
+  color: #666;
+  border: 1px solid rgba(100, 100, 100, 0.2);
+  cursor: not-allowed;
+  pointer-events: none;
+  opacity: 0.5;
+}
+
+.demo-link.disable {
+  background: rgba(100, 100, 100, 0.2);
+  color: #666;
+  border: 1px solid rgba(100, 100, 100, 0.2);
+  cursor: not-allowed;
+  pointer-events: none;
+  opacity: 0.5;
+}
+.github-link.disable:hover {
+  background: rgba(100, 100, 100, 0.1);
+  border-color: rgba(100, 100, 100, 0.2);
+  transform: none;
+  box-shadow: none;
+}
+
+.demo-link.disable:hover {
+  background: rgba(100, 100, 100, 0.2);
+  border-color: rgba(100, 100, 100, 0.2);
+  transform: none;
+  box-shadow: none;
+}
 .view-all-container {
   margin-top: 3rem;
 }

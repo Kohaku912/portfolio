@@ -112,13 +112,13 @@ document.addEventListener('DOMContentLoaded', () => {
         currentIdx = idx;
         updateActiveDot();
         main.scrollTo({ top: idx * window.innerHeight, behavior: 'smooth' });
-        setTimeout(() => isAutoScrolling = false, 1500);
+        setTimeout(() => isAutoScrolling = false, 800);
     };
     main.addEventListener('wheel', e => {
         if (overlay) return;
         e.preventDefault();
-        if (isAutoScrolling) return;
-        console.log('deltaY:', e);
+        if (isAutoScrolling || Math.abs(e.deltaY) < 30) return;
+        console.log('Wheel event detected:', e.deltaY);
         if (e.deltaY > 0) goTo(currentIdx + 1);
         else if (e.deltaY < 0) goTo(currentIdx - 1);
     }, { passive: false });
