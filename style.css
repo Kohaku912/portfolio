@@ -711,8 +711,9 @@ main {
   }
   
   .works-grid {
-    height: calc(100vh - 9rem); /* 高さを少し調整 */
-    gap: 1rem; /* ギャップを小さく */
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem; /* 必要に応じて調整 */
   }
   
   .project-card {

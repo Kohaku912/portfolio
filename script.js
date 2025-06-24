@@ -145,7 +145,7 @@ document.addEventListener('DOMContentLoaded', () => {
         setTimeout(() => isAutoScrolling = false, 800);
     };
     main.addEventListener('wheel', e => {
-        if (overlay) return;
+        if (overlay || e.target.closest('.works-grid') || e.target.closest('.timeline-item')) return;
         e.preventDefault();
         if (isAutoScrolling || Math.abs(e.deltaY) < 30) return;
         console.log('Wheel event detected:', e.deltaY);
@@ -158,6 +158,7 @@ document.addEventListener('DOMContentLoaded', () => {
     }, { passive: false });
 
     main.addEventListener('touchmove', e => {
+        if (overlay || e.target.closest('.works-grid') || e.target.closest('.timeline-item')) return;
         e.preventDefault();
         if (isAutoScrolling) return;
         const deltaY = touchStartY - e.touches[0].clientY;
