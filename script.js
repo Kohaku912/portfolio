@@ -10,37 +10,6 @@ document.addEventListener('DOMContentLoaded', () => {
     let overlay = false;
     
     const glowBoxes = document.querySelectorAll(".glow-box");
-    const projectCards = document.querySelectorAll('.project-card');
-    
-    // 初期状態で全てのカードを折りたたみ状態に
-    projectCards.forEach(card => {
-        card.classList.add('collapsed');
-    });
-    projectCards.forEach(card => {
-        card.addEventListener('click', function(e) {
-            // リンククリック時は展開/折りたたみを行わない
-            if (e.target.tagName === 'A' || e.target.closest('a')) {
-                return;
-            }
-            
-            // 他のカードを折りたたむ
-            projectCards.forEach(otherCard => {
-                if (otherCard !== card) {
-                    otherCard.classList.remove('expanded');
-                    otherCard.classList.add('collapsed');
-                }
-            });
-            
-            // クリックされたカードの状態を切り替え
-            if (card.classList.contains('collapsed')) {
-                card.classList.remove('collapsed');
-                card.classList.add('expanded');
-            } else {
-                card.classList.remove('expanded');
-                card.classList.add('collapsed');
-            }
-        });
-    });
     glowBoxes.forEach(box => {
         box.addEventListener('mouseover', () => {
             if(box.classList.contains('glow')) return;
@@ -145,7 +114,7 @@ document.addEventListener('DOMContentLoaded', () => {
         setTimeout(() => isAutoScrolling = false, 800);
     };
     main.addEventListener('wheel', e => {
-        if (overlay || e.target.closest('.works-grid') || e.target.closest('.timeline-item')) return;
+        if (overlay || e.target.closest('.timeline-item')) return;
         e.preventDefault();
         if (isAutoScrolling || Math.abs(e.deltaY) < 30) return;
         console.log('Wheel event detected:', e.deltaY);
@@ -158,7 +127,7 @@ document.addEventListener('DOMContentLoaded', () => {
     }, { passive: false });
 
     main.addEventListener('touchmove', e => {
-        if (overlay || e.target.closest('.works-grid') || e.target.closest('.timeline-item')) return;
+        if (overlay || e.target.closest('.timeline-item')) return;
         e.preventDefault();
         if (isAutoScrolling) return;
         const deltaY = touchStartY - e.touches[0].clientY;
