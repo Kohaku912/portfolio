@@ -8,7 +8,7 @@ document.addEventListener('DOMContentLoaded', () => {
     let isAutoScrolling = false;
     let touchStartY = 0;
     let overlay = false;
-    
+
     const glowBoxes = document.querySelectorAll(".glow-box");
     glowBoxes.forEach(box => {
         box.addEventListener('mouseover', () => {
@@ -39,28 +39,6 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     });
 
-    const viewAllBtn = document.querySelector('.view-all-btn');
-    const worksOverlay = document.getElementById('works-overlay');
-    const closeBtn = document.querySelector('.close-btn');
-
-    viewAllBtn.addEventListener('click', function (e) {
-        e.preventDefault();
-        worksOverlay.style.display = 'flex';
-        overlay = true;
-    });
-
-    closeBtn.addEventListener('click', function () {
-        worksOverlay.style.display = 'none';
-        overlay = false;
-    });
-
-    worksOverlay.addEventListener('click', function (e) {
-        if (e.target === worksOverlay) {
-            worksOverlay.style.display = 'none';
-            overlay = false;
-        }
-    });
-
     function positionSkillTitle(targetBox, skillTitleElement) {
         const boxRect = targetBox.getBoundingClientRect();
         skillTitleElement.textContent = Array.from(targetBox.classList).find(className => className.startsWith('skill-'))?.replace('skill-', '') || null;
@@ -82,23 +60,6 @@ document.addEventListener('DOMContentLoaded', () => {
     }
 
     resetSkillTitlePosition(skillTitle);
-
-    viewAllBtn.addEventListener('click', function (e) {
-        e.preventDefault();
-        worksOverlay.style.display = 'flex';
-        overlay = true;
-    });
-    closeBtn.addEventListener('click', function () {
-        worksOverlay.style.display = 'none';
-        overlay = false;
-    });
-
-    worksOverlay.addEventListener('click', function (e) {
-        if (e.target === worksOverlay) {
-            worksOverlay.style.display = 'none';
-            overlay = false;
-        }
-    });
     const updateActiveDot = () => {
         dots.forEach(dot =>
             dot.classList.toggle('active', parseInt(dot.dataset.index, 10) === currentIdx)
@@ -111,10 +72,18 @@ document.addEventListener('DOMContentLoaded', () => {
         currentIdx = idx;
         updateActiveDot();
         main.scrollTo({ top: idx * window.innerHeight, behavior: 'smooth' });
-        setTimeout(() => isAutoScrolling = false, 800);
+        setTimeout(() => isAutoScrolling = false, 300);
     };
     main.addEventListener('wheel', e => {
-        if (overlay || e.target.closest('.timeline-item')) return;
+        const timeline = e.target.closest('.timeline');
+        if (timeline) {
+            const maxScrollTop = timeline.scrollHeight - timeline.clientHeight;
+            if ((e.deltaY < 0 && timeline.scrollTop > 0) ||
+                (e.deltaY > 0 && timeline.scrollTop < maxScrollTop)) {
+                return;
+            }
+        }
+
         e.preventDefault();
         if (isAutoScrolling || Math.abs(e.deltaY) < 30) return;
         console.log('Wheel event detected:', e.deltaY);
@@ -127,7 +96,15 @@ document.addEventListener('DOMContentLoaded', () => {
     }, { passive: false });
 
     main.addEventListener('touchmove', e => {
-        if (overlay || e.target.closest('.timeline-item')) return;
+        const timeline = e.target.closest('.timeline');
+        if (timeline) {
+            const maxScrollTop = timeline.scrollHeight - timeline.clientHeight;
+            if ((e.deltaY < 0 && timeline.scrollTop > 0) ||
+                (e.deltaY > 0 && timeline.scrollTop < maxScrollTop)) {
+                return;
+            }
+        }
+
         e.preventDefault();
         if (isAutoScrolling) return;
         const deltaY = touchStartY - e.touches[0].clientY;

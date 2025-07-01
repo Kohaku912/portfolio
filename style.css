@@ -14,7 +14,9 @@ body {
   font-family: 'Segoe UI', Tahoma, sans-serif;
   color: #fff;
 }
-
+a {
+  text-decoration:none
+}
 main {
   height: 100vh;
   overflow: hidden;
@@ -458,8 +460,8 @@ main {
   justify-content: flex-start;
   padding-top: 5rem;
   padding-bottom: 2rem;
-  height: 100vh;
-  overflow: hidden;
+  height: 100vh;       /* そのまま */
+  overflow: hidden;     /* そのまま */
 }
 
 .works-title {
@@ -469,262 +471,71 @@ main {
   background: linear-gradient(45deg, #00ff88, #00d4ff);
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
-  background-clip: text;
   text-align: center;
 }
 
-.works-grid {
-  display: grid;
-  grid-template-columns: repeat(2, 1fr);
-  gap: 2rem;
-  padding: 1rem;
-  margin: 1rem auto;
-  flex-grow: 1;
-  max-width: 1200px;
+.carousel-container {
+  position: relative;
+  width: 100vh;
+  height: 60vh; 
+  overflow: hidden;
 }
 
-.works-grid-overlay {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-  gap: 2rem;
-  padding-top: 1rem;
+.carousel-track {
+  display: flex;
+  overflow-x: auto;
+  scroll-snap-type: x mandatory;
+  -webkit-overflow-scrolling: touch;
+  scroll-behavior: smooth;
 }
 
-.works-grid::-webkit-scrollbar {
-  width: 8px;
+.carousel-track::-webkit-scrollbar {
+  display: none;
 }
 
-.works-grid::-webkit-scrollbar-track {
-  background: rgba(255, 255, 255, 0.05);
-  border-radius: 10px;
-}
-
-.works-grid::-webkit-scrollbar-thumb {
-  background: linear-gradient(45deg, #00ff88, #00d4ff);
-  border-radius: 10px;
-  border: 2px solid transparent;
-  background-clip: padding-box;
-}
-
-.works-grid::-webkit-scrollbar-thumb:hover {
-  background: linear-gradient(45deg, #00d4ff, #00ff88);
-}
 .project-card {
-  background: rgba(255, 255, 255, 0.05);
+  flex: 0 0 80%;          /* 画面幅の80%で大きく表示 */
+  margin-right: 2rem;
+  scroll-snap-align: center;
+  background: rgba(255,255,255,0.05);
   border-radius: 15px;
   padding: 1.5rem;
   backdrop-filter: blur(10px);
-  border: 1px solid rgba(255, 255, 255, 0.1);
-  transition: all 0.3s ease;
-  cursor: pointer;
-  overflow: hidden;
-  position: relative;
-  text-decoration: none; /* 追加 */
-  color: inherit; /* 追加 */
-  display: block; /* 追加 */
+  border: 1px solid rgba(255,255,255,0.1);
 }
 
-.project-card:hover {
-  transform: translateY(-10px);
-  box-shadow: 0 20px 40px rgba(0, 255, 136, 0.2);
-  border-color: #00ff88;
-}
-.project-card::after {
-  content: '⧉';
-  position: absolute;
-  bottom: 1rem;
-  right: 1rem;
-  color: rgba(128, 128, 128, 0.4);
-  font-size: 1.2rem;
-  font-weight: bold;
-  transition: all 0.3s ease;
-}
-
-.project-card:hover::after {
-  color: rgba(128, 128, 128, 0.7);
-  transform: translate(2px, -2px);
-}
 .project-image {
   width: 100%;
-  height: 120px;
+  height: 40vh;
   border-radius: 10px;
-  margin-bottom: 0.5rem;
   overflow: hidden;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  position: relative;
+  margin-bottom: 1rem;
 }
 
 .project-image img {
   width: 100%;
   height: 100%;
   object-fit: cover;
-  display: block;
-}
-
-.project-image::before {
-  content: '';
-  position: absolute;
-  top: 0;
-  left: 0;
-  right: 0;
-  bottom: 0;
-  background: linear-gradient(
-    45deg,
-    transparent 30%,
-    rgba(255, 255, 255, 0.1) 50%,
-    transparent 70%
-  );
-  transform: translateX(-100%);
-  transition: transform 0.6s ease;
-}
-
-.project-card:hover .project-image::before {
-  transform: translateX(100%);
-}
-
-.project-card:nth-child(1) .project-image {
-  background: linear-gradient(45deg, #667eea 0%, #764ba2 100%);
-}
-
-.project-card:nth-child(2) .project-image {
-  background: linear-gradient(45deg, #f093fb 0%, #f5576c 100%);
-}
-
-.project-card:nth-child(3) .project-image {
-  background: linear-gradient(45deg, #4facfe 0%, #00f2fe 100%);
-}
-
-.project-card:nth-child(4) .project-image {
-  background: linear-gradient(45deg, #43e97b 0%, #38f9d7 100%);
 }
 
 .project-title {
-  font-size: 1.1rem;
+  font-size: 1.2rem;
   font-weight: bold;
-  margin-bottom: 0.3rem;
+  margin-bottom: 0.1rem;
   color: #00ff88;
 }
 
 .project-description {
-  color: #cccccc;
-  line-height: 1.4;
-  font-size: 0.8rem;
-  margin-bottom: 0.8rem;
+  color: #ccc;
+  font-size: 0.9rem;
 }
-
-.project-tags {
-  display: flex;
-  gap: 0.5rem;
-  margin-bottom: 1rem;
-  flex-wrap: wrap;
+.swiper-pagination-bullet {
+  background: rgba(255,255,255,0.4) !important;
+  opacity: 1 !important;
 }
-
-.tag {
-  background: rgba(0, 255, 136, 0.1);
-  border: 1px solid rgba(0, 255, 136, 0.3);
-  border-radius: 20px;
-  padding: 0.3rem 0.8rem;
-  font-size: 0.75rem;
-  color: #00ff88;
-  font-weight: 500;
+.swiper-pagination-bullet-active {
+  background: #fff !important;
 }
-.view-all-container {
-  text-align: center;
-  margin-top: 3rem;
-}
-
-.view-all-btn {
-  display: inline-flex;
-  align-items: center;
-  gap: 0.5rem;
-  background: linear-gradient(45deg, #00ff88, #00ccff);
-  color: white;
-  padding: 1rem 2rem;
-  border-radius: 50px;
-  text-decoration: none;
-  font-weight: 600;
-  transition: all 0.3s ease;
-  border: none;
-  cursor: pointer;
-}
-
-.view-all-btn:hover {
-  transform: translateY(-2px);
-  box-shadow: 0 10px 30px rgba(0, 255, 136, 0.3);
-}
-
-/* Works Overlay */
-.works-overlay {
-  position: fixed;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  background: rgba(0, 0, 0, 0.9);
-  display: none;
-  justify-content: center;
-  align-items: center;
-  z-index: 9999;
-  backdrop-filter: blur(8px);
-}
-
-.works-overlay-content {
-  background: #0d0d0d;
-  border-radius: 15px;
-  padding: 2rem;
-  width: 90%;
-  max-width: 1200px;
-  max-height: 80vh;
-  position: relative;
-  box-shadow: 0 0 50px rgba(0, 255, 136, 0.4);
-  overflow-y: scroll;
-  border: 10px solid rgba(0, 0, 0, 0.9);
-}
-
-.works-overlay-content::-webkit-scrollbar {
-  width: 10px;
-}
-
-.works-overlay-content::-webkit-scrollbar-track {
-  background: rgba(255, 255, 255, 0.05);
-  border-radius: 10px;
-  box-shadow: inset 0 0 5px rgba(0, 0, 0, 0.2);
-}
-
-.works-overlay-content::-webkit-scrollbar-thumb {
-  background: linear-gradient(45deg, #00ff88, #00d4ff);
-  border-radius: 10px;
-  box-shadow: 0 0 10px rgba(0, 255, 136, 0.3);
-  border: 2px solid transparent;
-  background-clip: padding-box;
-}
-
-.works-overlay-content::-webkit-scrollbar-thumb:hover {
-  background: linear-gradient(45deg, #00d4ff, #00ff88);
-  box-shadow: 0 0 15px rgba(0, 255, 136, 0.5);
-}
-
-.works-overlay-content::-webkit-scrollbar-thumb:active {
-  background: linear-gradient(45deg, #00ff88, #00d4ff);
-  box-shadow: 0 0 20px rgba(0, 255, 136, 0.7);
-}
-
-.close-btn {
-  position: absolute;
-  top: 1rem;
-  right: 1.5rem;
-  color: #fff;
-  font-size: 2.5rem;
-  cursor: pointer;
-  transition: color 0.3s ease;
-}
-
-.close-btn:hover {
-  color: #00ff88;
-}
-
 /* Timeline Section */
 .timeline {
   height: 100vh;
