@@ -9,8 +9,6 @@
     href="https://raw.githubusercontent.com/Kohaku912/portfolio/refs/heads/main/assets/icons/favicon.ico">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
   <link rel="stylesheet" href="style.css" />
-  <script type="module" crossorigin src="./assets/index.js"></script>
-  <link rel="modulepreload" crossorigin href="./assets/vendor-three.js" />
   <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r134/three.min.js"></script>
   <script src="https://cdn.jsdelivr.net/npm/vanta@latest/dist/vanta.net.min.js"></script>
   <script src="https://cdn.jsdelivr.net/npm/vanta@latest/dist/vanta.birds.min.js"></script>
@@ -19,24 +17,9 @@
 
 <body>
 
-  <div class="social-icons-container">
-    <a href="https://github.com/Kohaku912" target="_blank" aria-label="GitHub">
-      <i class="fab fa-github"></i>
-    </a>
-    <a href="https://youtu.be/jNQXAC9IVRw?si=JnAkF3mAvSVDl2Hk" target="_blank" aria-label="YouTube">
-      <i class="fab fa-youtube"></i>
-    </a>
-    <a href="https://x.com/elonmusk" target="_blank" aria-label="X (Twitter)">
-      <i class="fab fa-twitter"></i>
-      <a href="https://www.instagram.com/zuck/" target="_blank" aria-label="Instagram">
-        <i class="fab fa-instagram"></i>
-      </a>
-      <div class="social-line"></div>
-  </div>
 
   <main>
     <section id="hero" class="section hero">
-      <div id="webgl"></div>
       <h1>Hi, I’m Tatsuki </h1>
       <p>Software Engineer</p>
     </section>
@@ -53,7 +36,7 @@
       </div>
     </section>
 
-    <section id="skill" class="section">
+    <section id="skill" class="section skills">
       <h2>SKILL & TOOLS</h2>
       <div class="icon-section">
         <div class="icon-grid">
@@ -245,7 +228,7 @@
       </div>
       <div class="skill-title">html</div>
     </section>
-    <section id="works" class="section">
+    <section id="works" class="section works">
       <h2 class="works-title">WORKS</h2>
       <div class="carousel-container swiper">
         <div class="swiper-wrapper">
@@ -343,7 +326,7 @@
       </div>
       </div>
     </section>
-    <section id="timeline" class="timeline">
+    <section id="timeline" class="section achievements">
       <h2>Achivements</h2>
       <div class="timeline-item">
         <div class="timeline-content" onclick="openAchievementDetail('atcoder-brown')">
@@ -376,8 +359,20 @@
       </div>
     </section>
   </main>
-
-  <!-- Page Indicator Dots -->
+  <div class="social-icons-container">
+    <a href="https://github.com/Kohaku912" target="_blank" aria-label="GitHub">
+      <i class="fab fa-github"></i>
+    </a>
+    <a href="https://youtu.be/jNQXAC9IVRw?si=JnAkF3mAvSVDl2Hk" target="_blank" aria-label="YouTube">
+      <i class="fab fa-youtube"></i>
+    </a>
+    <a href="https://x.com/elonmusk" target="_blank" aria-label="X (Twitter)">
+      <i class="fab fa-twitter"></i>
+      <a href="https://www.instagram.com/zuck/" target="_blank" aria-label="Instagram">
+        <i class="fab fa-instagram"></i>
+      </a>
+      <div class="social-line"></div>
+  </div>
   <div class="page-indicator">
     <span class="dot" data-index="0"></span>
     <span class="dot" data-index="1"></span>
@@ -433,11 +428,10 @@
         quantity: 5.00
       })
       new Swiper('.carousel-container.swiper', {
-        // 横スライド
         direction: 'horizontal',
         slidesPerView: 'auto',
         centeredSlides: true,
-        spaceBetween: 50,
+        spaceBetween: 30,
         simulateTouch: true,
         roundLengths: true,
         loop: true,

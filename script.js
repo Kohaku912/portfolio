@@ -2,12 +2,10 @@ document.addEventListener('DOMContentLoaded', () => {
     const main = document.querySelector('main');
     const dots = document.querySelectorAll('.dot');
     const skillTitle = document.querySelector('.skill-title');
-    const webgl = document.querySelector('#webgl');
     const total = dots.length;
     let currentIdx = 0;
     let isAutoScrolling = false;
     let touchStartY = 0;
-    let overlay = false;
 
     const glowBoxes = document.querySelectorAll(".glow-box");
     glowBoxes.forEach(box => {
@@ -71,7 +69,7 @@ document.addEventListener('DOMContentLoaded', () => {
         isAutoScrolling = true;
         currentIdx = idx;
         updateActiveDot();
-        main.scrollTo({ top: idx * window.innerHeight, behavior: 'smooth' });
+        window.scrollTo({ top: idx * window.innerHeight, behavior: 'smooth' });
         setTimeout(() => isAutoScrolling = false, 300);
     };
     main.addEventListener('wheel', e => {
@@ -83,10 +81,8 @@ document.addEventListener('DOMContentLoaded', () => {
                 return;
             }
         }
-
         e.preventDefault();
-        if (isAutoScrolling || Math.abs(e.deltaY) < 30) return;
-        console.log('Wheel event detected:', e.deltaY);
+        if (isAutoScrolling || Math.abs(e.deltaY) < 50) return;
         if (e.deltaY > 0) goTo(currentIdx + 1);
         else if (e.deltaY < 0) goTo(currentIdx - 1);
     }, { passive: false });
@@ -108,7 +104,7 @@ document.addEventListener('DOMContentLoaded', () => {
         e.preventDefault();
         if (isAutoScrolling) return;
         const deltaY = touchStartY - e.touches[0].clientY;
-        if (Math.abs(deltaY) < 10) return;
+        if (Math.abs(deltaY) < 50) return;
         if (deltaY > 0) {
             goTo(currentIdx + 1);
             touchStartY = e.touches[0].clientY;
