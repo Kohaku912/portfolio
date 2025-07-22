@@ -73,7 +73,7 @@ document.addEventListener('DOMContentLoaded', () => {
         setTimeout(() => isAutoScrolling = false, 300);
     };
     main.addEventListener('wheel', e => {
-        const timeline = e.target.closest('.timeline');
+        const timeline = e.target.closest('.timeline-container');
         if (timeline) {
             const maxScrollTop = timeline.scrollHeight - timeline.clientHeight;
             if ((e.deltaY < 0 && timeline.scrollTop > 0) ||
@@ -82,7 +82,7 @@ document.addEventListener('DOMContentLoaded', () => {
             }
         }
         e.preventDefault();
-        if (isAutoScrolling || Math.abs(e.deltaY) < 50) return;
+        if (isAutoScrolling || Math.abs(e.deltaY) < 30) return;
         if (e.deltaY > 0) goTo(currentIdx + 1);
         else if (e.deltaY < 0) goTo(currentIdx - 1);
     }, { passive: false });
@@ -92,7 +92,7 @@ document.addEventListener('DOMContentLoaded', () => {
     }, { passive: false });
 
     main.addEventListener('touchmove', e => {
-        const timeline = e.target.closest('.timeline');
+        const timeline = e.target.closest('.timeline-container');
         if (timeline) {
             const maxScrollTop = timeline.scrollHeight - timeline.clientHeight;
             if ((e.deltaY < 0 && timeline.scrollTop > 0) ||
@@ -104,7 +104,7 @@ document.addEventListener('DOMContentLoaded', () => {
         e.preventDefault();
         if (isAutoScrolling) return;
         const deltaY = touchStartY - e.touches[0].clientY;
-        if (Math.abs(deltaY) < 50) return;
+        if (Math.abs(deltaY) < 30) return;
         if (deltaY > 0) {
             goTo(currentIdx + 1);
             touchStartY = e.touches[0].clientY;

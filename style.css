@@ -15,7 +15,7 @@ body {
   background-color: #0d0d0d;
   color: #ffffff;
   line-height: 1.6;
-  overflow-x: hidden;
+  overflow: hidden;
 }
 
 /* ===== SOCIAL ICONS ===== */
@@ -571,6 +571,35 @@ h2::after {
 .achievements {
   background: #0d0d0d;
   padding: 1rem;
+}
+.timeline-container {
+  padding-right: 0.5rem;
+  overflow-y: auto;
+  background: var(--background-card);
+  border-radius: var(--border-radius);
+  backdrop-filter: blur(20px);
+  border: 1px solid var(--border-color);
+  box-shadow: 0 4px 20px rgba(168, 85, 247, 0.1);
+}
+
+/* Timeline Container専用スクロールバー */
+.timeline-container::-webkit-scrollbar {
+  width: 12px;
+}
+
+.timeline-container::-webkit-scrollbar-track {
+  background: #000000;
+  border-radius: 6px;
+}
+
+.timeline-container::-webkit-scrollbar-thumb {
+  background: #a855f7;
+  border-radius: 6px;
+  transition: background 0.3s ease;
+}
+
+.timeline-container::-webkit-scrollbar-thumb:hover {
+  background: #9333ea;
 }
 
 .timeline-item {
