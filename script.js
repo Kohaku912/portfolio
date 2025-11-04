@@ -128,6 +128,8 @@ function openAchievementDetail(achievementId) {
     const achievementUrls = {
         'webappcontest-winter-2025': 'https://progedu.github.io/webappcontest/2024/winter/entry/result.html',
         'atcoder-brown': 'https://atcoder.jp/users/tatuki912',
+        "gakuryoku-2025": "https://www.gakuryokuup.com/%E5%8F%97%E8%B3%9E%E4%BD%9C%E5%93%81",
+        "webappcontest-summer-2025": "https://progedu.github.io/webappcontest/2025/summer/result/index.html"
     };
 
     event.currentTarget.style.transform = 'scale(0.98)';
