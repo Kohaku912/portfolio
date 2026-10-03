@@ -1,0 +1,32 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 640 360" width="640" height="360" role="img" aria-label="robotarm">
+  <defs>
+    <linearGradient id="bg" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0%" stop-color="#0f172a"/>
+      <stop offset="100%" stop-color="#166534"/>
+    </linearGradient>
+    <linearGradient id="accent" x1="0" y1="0" x2="1" y2="0">
+      <stop offset="0%" stop-color="#a3e635"/>
+      <stop offset="100%" stop-color="#34d399"/>
+    </linearGradient>
+  </defs>
+
+  <rect width="640" height="360" fill="url(#bg)"/>
+
+  <g stroke="#4ade80" stroke-opacity="0.12" stroke-width="1">
+    <path d="M0 60H640M0 120H640M0 180H640M0 240H640M0 300H640"/>
+    <path d="M80 0V360M160 0V360M240 0V360M320 0V360M400 0V360M480 0V360M560 0V360"/>
+  </g>
+
+  <text x="48" y="104" font-family="Segoe UI, Meiryo, sans-serif" font-size="40" font-weight="700" fill="#f8fafc">robotarm</text>
+  <rect x="48" y="122" width="150" height="5" rx="2.5" fill="url(#accent)"/>
+
+  <text x="48" y="168" font-family="Segoe UI, Meiryo, sans-serif" font-size="19" fill="#cbd5e1">parametric 6-axis arm fully designed in FreeCAD</text>
+  <text x="48" y="200" font-family="Segoe UI, Meiryo, sans-serif" font-size="19" fill="#cbd5e1">one parameter table -> STL / URDF / 2D drawings</text>
+
+  <g font-family="Consolas, Menlo, monospace" font-size="15" fill="#a3e635">
+    <text x="48" y="268">Python</text>
+    <text x="180" y="268">FreeCAD</text>
+    <text x="312" y="268">PyBullet</text>
+    <text x="444" y="268">URDF</text>
+  </g>
+</svg>

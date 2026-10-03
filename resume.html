@@ -142,8 +142,8 @@
         <div><span>職種</span>ITエンジニア（バックエンド／アプリ開発）</div>
         <div><span>学歴</span>N高等学校 3年次（ネットコース）／2027年3月 卒業見込み</div>
         <div><span>居住地</span>兵庫県</div>
-        <div><span>連絡先</span><a href="mailto:CONTACT_EMAIL_HERE">CONTACT_EMAIL_HERE</a></div>
-        <div><span>希望勤務</span>フルリモート可（月1回程度の出社は可）</div>
+        <div><span>連絡先</span>GitHub のプロフィールよりご連絡ください（<a href="https://github.com/Kohaku912">@Kohaku912</a>）</div>
+        <div><span>希望条件</span>職種不問 ／ 正社員 ／ フルリモート（週1回までの出社は可）</div>
         <div><span>ポートフォリオ</span><a href="https://kohaku912.github.io/portfolio/">kohaku912.github.io/portfolio/</a></div>
         <div><span>GitHub</span><a href="https://github.com/Kohaku912">github.com/Kohaku912</a></div>
       </div>
@@ -154,6 +154,9 @@
       高校在学中から約4年間プログラミングを継続し、Web アプリケーション・スマートフォンアプリ・Windows アプリ・
       PC ゲームまで幅広く開発してきました。直近は <strong>Python（FastAPI）によるサーバーサイド開発</strong>に注力し、
       API 設計・認証・DB・自動テスト・Docker・CI まで一通り自力で実装しています。
+      低レイヤにも手を広げ、<strong>C17</strong> で依存ライブラリなしのレートリミッタを実装し、
+      テストを書く過程で見つけた 2 件の欠陥を修正したうえで AddressSanitizer・
+      UndefinedBehaviorSanitizer・valgrind を通しました。
       実務では、株式会社ビーライズで XR エンジニアのインターン（約2週間）、株式会社ナノベースで
       フルスタックエンジニアとして業務委託（約1か月）を経験し、要件確認から実装・動作確認までを担当しました。
     </p>
@@ -237,6 +240,28 @@
       </thead>
       <tbody>
         <tr>
+          <td><strong>AEGIS</strong><br><a href="https://github.com/Kohaku912/AEGIS">GitHub</a></td>
+          <td>6 サーバー構成の自律型 AI アシスタント。Python / Rust / Kotlin / TypeScript を gRPC で疎結合に接続。
+            Python 533 モジュール・テスト 657 件・設計文書 56 件。LLM に依存しない決定論的ポリシーエンジンで
+            副作用を統制し、全サーバーにまたがる性質をテストで固定している。</td>
+          <td>Python / Rust / Kotlin / TypeScript / gRPC / Protobuf / Docker Compose</td>
+        </tr>
+        <tr>
+          <td><strong>ratelimit</strong><br><a href="https://github.com/Kohaku912/ratelimit">GitHub</a></td>
+          <td>C17 で実装したトークンバケット方式のレートリミッタ。依存ライブラリなし・約 120 行。
+            17 ケース / 70 チェックが全て成功し、AddressSanitizer・UndefinedBehaviorSanitizer・valgrind で
+            クリーン。時刻を引数で受け取る設計でフレークせず、時計が逆行しても壊れない。テストを書く過程で
+            2 件の欠陥を自分で発見して修正した。CMake + ctest と GitHub Actions の CI を備える。</td>
+          <td>C（C17）/ CMake / ctest / ASan / UBSan / valgrind</td>
+        </tr>
+        <tr>
+          <td><strong>earthquake_notify</strong><br><a href="https://github.com/Kohaku912/earthquake_notify">GitHub</a></td>
+          <td>Nextcloud 用の地震情報配信アプリ（PHP）。P2PQuake を常時監視し Nextcloud Talk へ一斉通知。
+            安否状況のワンクリック回答、通知ログ、管理ダッシュボードを実装。外部 API 連携・HTML
+            スクレイピング・キャッシュ・<code>occ</code> コマンドを扱った。</td>
+          <td>PHP / Nextcloud / Nextcloud Talk / systemd / DOM スクレイピング</td>
+        </tr>
+        <tr>
           <td><strong>TaskFlow API</strong><br><a href="https://github.com/Kohaku912/taskflow-api">GitHub</a></td>
           <td>タスク管理の REST API。JWT 認証、検索・フィルタ・ソート、ページネーション、ユーザー単位のデータ分離。
             テスト 30 件・カバレッジ 97%。Docker（非 root）と GitHub Actions CI を整備。</td>
@@ -286,7 +311,7 @@
     <table>
       <tbody>
         <tr><th>2024年4月</th><td>N高等学校 入学（通学プログラミングコース）</td></tr>
-        <tr><th>2025年4月</th><td>N高等学校 3年次よりネットコースへ変更</td></tr>
+        <tr><th>2025年4月</th><td>N高等学校 ネットコースへ変更（現在3年次）</td></tr>
         <tr><th>2027年3月</th><td>N高等学校 卒業見込み</td></tr>
       </tbody>
     </table>
@@ -297,13 +322,15 @@
       <li><strong>実装から逃げない</strong>：作りたいものを最後まで形にします。TaskFlow API では、認証・テスト・Docker・CI まで一通り自分で組みました。</li>
       <li><strong>基礎の裏付け</strong>：基本情報技術者試験に合格し、AtCoder では水色（Rating 1249）です。</li>
       <li><strong>実務の経験</strong>：インターンと業務委託を合わせて約1.5か月、実際の業務として納品まで経験しました。</li>
+      <li><strong>テストと安全性まで面倒を見る</strong>：ratelimit では 70 チェックのテストを書き、サニタイザと valgrind でクリーンにしました。書いたテストで自分のバグを 2 件見つけて直しています。</li>
     </ul>
 
     <h2>働き方の希望</h2>
     <table>
       <tbody>
         <tr><th>雇用形態</th><td>正社員</td></tr>
-        <tr><th>勤務地</th><td>フルリモート可（月1回程度の出社には対応可）</td></tr>
+        <tr><th>職種</th><td>職種不問（開発職は歓迎）</td></tr>
+        <tr><th>勤務地</th><td>フルリモート（週1回までの出社には対応可）</td></tr>
         <tr><th>入社時期</th><td>2027年3月以降</td></tr>
         <tr><th>希望年収</th><td>300万円以上</td></tr>
         <tr><th>残業</th><td>許容可</td></tr>
