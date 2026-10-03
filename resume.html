@@ -1,0 +1,317 @@
+<!DOCTYPE html>
+<html lang="ja">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>職務経歴書 | Tatsuki</title>
+  <meta name="robots" content="noindex" />
+  <style>
+    :root {
+      --ink: #1f2937;
+      --muted: #5b6472;
+      --line: #d7deea;
+      --accent: #2563eb;
+      --soft: #f6f8fb;
+    }
+
+    * { box-sizing: border-box; }
+
+    body {
+      margin: 0;
+      font-family: "Yu Gothic UI", "Meiryo", "Hiragino Kaku Gothic ProN", system-ui, sans-serif;
+      background: var(--soft);
+      color: var(--ink);
+      line-height: 1.8;
+      -webkit-print-color-adjust: exact;
+      print-color-adjust: exact;
+    }
+
+    .page {
+      max-width: 860px;
+      margin: 0 auto;
+      background: #fff;
+      padding: 40px 48px 56px;
+    }
+
+    header {
+      border-bottom: 3px solid var(--accent);
+      padding-bottom: 16px;
+      margin-bottom: 24px;
+    }
+
+    h1 {
+      font-size: 27px;
+      margin: 0 0 6px;
+      letter-spacing: 0.06em;
+    }
+
+    .subtitle { color: var(--muted); font-size: 14px; margin: 0; }
+
+    .meta-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+      gap: 4px 24px;
+      margin-top: 14px;
+      font-size: 13.5px;
+    }
+
+    .meta-grid div span { color: var(--muted); display: inline-block; min-width: 84px; }
+
+    h2 {
+      font-size: 17px;
+      margin: 30px 0 12px;
+      padding: 6px 12px;
+      background: var(--soft);
+      border-left: 4px solid var(--accent);
+      border-radius: 4px;
+    }
+
+    h3 { font-size: 15px; margin: 16px 0 4px; }
+
+    p { margin: 0 0 10px; font-size: 14px; }
+
+    ul { margin: 6px 0 12px 20px; padding: 0; font-size: 14px; }
+    li { margin-bottom: 4px; }
+
+    table { width: 100%; border-collapse: collapse; font-size: 13.5px; margin: 8px 0 14px; }
+    th, td { border: 1px solid var(--line); padding: 8px 10px; vertical-align: top; text-align: left; }
+    th { background: #f7f9fc; white-space: nowrap; }
+
+    .job { margin-bottom: 18px; }
+    .job-head { display: flex; justify-content: space-between; gap: 12px; flex-wrap: wrap; align-items: baseline; }
+    .job-title { font-weight: 700; font-size: 15px; }
+    .job-period { color: var(--muted); font-size: 13px; }
+    .badge {
+      display: inline-block; font-size: 11.5px; font-weight: 700;
+      padding: 1px 8px; border-radius: 999px;
+      background: #eaf2ff; color: var(--accent); border: 1px solid #c8d8ff;
+      margin-left: 6px;
+    }
+
+    .tag {
+      display: inline-block; font-size: 12px; padding: 2px 9px; margin: 0 5px 5px 0;
+      border-radius: 999px; background: #f1f5f9; border: 1px solid var(--line); color: #334155;
+    }
+
+    .note {
+      font-size: 12.5px; color: var(--muted);
+      border-left: 3px solid #f59e0b; background: #fffbeb;
+      padding: 8px 12px; border-radius: 6px; margin: 12px 0;
+    }
+
+    .toolbar {
+      max-width: 860px; margin: 18px auto 0; padding: 0 48px;
+      display: flex; gap: 10px; justify-content: flex-end;
+    }
+
+    .btn {
+      font-size: 13px; padding: 7px 16px; border-radius: 999px;
+      border: 1px solid var(--accent); color: var(--accent);
+      background: #fff; text-decoration: none; cursor: pointer;
+    }
+
+    .btn.primary { background: var(--accent); color: #fff; }
+
+    a { color: var(--accent); word-break: break-all; }
+
+    @media print {
+      body { background: #fff; }
+      .page { padding: 0; max-width: none; }
+      .toolbar { display: none; }
+      h2 { background: none; border-left-width: 3px; }
+      .job, tr { break-inside: avoid; }
+    }
+  </style>
+</head>
+
+<body>
+
+  <div class="toolbar">
+    <a class="btn" href="index.html">← ポートフォリオに戻る</a>
+    <button class="btn primary" onclick="window.print()">印刷 / PDF 保存</button>
+  </div>
+
+  <div class="page">
+
+    <header>
+      <h1>職務経歴書</h1>
+      <p class="subtitle">2026年10月3日 現在</p>
+      <div class="meta-grid">
+        <div><span>氏名</span>Tatsuki（GitHub: Kohaku912）</div>
+        <div><span>職種</span>ITエンジニア（バックエンド／アプリ開発）</div>
+        <div><span>学歴</span>N高等学校 3年次（ネットコース）／2027年3月 卒業見込み</div>
+        <div><span>居住地</span>兵庫県</div>
+        <div><span>連絡先</span><a href="mailto:CONTACT_EMAIL_HERE">CONTACT_EMAIL_HERE</a></div>
+        <div><span>希望勤務</span>フルリモート可（月1回程度の出社は可）</div>
+        <div><span>ポートフォリオ</span><a href="https://kohaku912.github.io/portfolio/">kohaku912.github.io/portfolio/</a></div>
+        <div><span>GitHub</span><a href="https://github.com/Kohaku912">github.com/Kohaku912</a></div>
+      </div>
+    </header>
+
+    <h2>職務要約</h2>
+    <p>
+      高校在学中から約4年間プログラミングを継続し、Web アプリケーション・スマートフォンアプリ・Windows アプリ・
+      PC ゲームまで幅広く開発してきました。直近は <strong>Python（FastAPI）によるサーバーサイド開発</strong>に注力し、
+      API 設計・認証・DB・自動テスト・Docker・CI まで一通り自力で実装しています。
+      実務では、株式会社ビーライズで XR エンジニアのインターン（約2週間）、株式会社ナノベースで
+      フルスタックエンジニアとして業務委託（約1か月）を経験し、要件確認から実装・動作確認までを担当しました。
+    </p>
+
+    <h2>スキル</h2>
+    <table>
+      <tbody>
+        <tr>
+          <th>言語</th>
+          <td>
+            <span class="tag">Python</span><span class="tag">Java</span><span class="tag">Kotlin</span>
+            <span class="tag">C</span><span class="tag">C++</span><span class="tag">TypeScript</span>
+            <span class="tag">JavaScript</span><span class="tag">PHP</span><span class="tag">HTML/CSS</span>
+          </td>
+        </tr>
+        <tr>
+          <th>バックエンド</th>
+          <td>FastAPI／SQLAlchemy／REST API 設計／JWT 認証／bcrypt／pytest／Pydantic</td>
+        </tr>
+        <tr>
+          <th>フロントエンド</th>
+          <td>React／Vue.js（Nuxt.js）／Three.js（WebGL）</td>
+        </tr>
+        <tr>
+          <th>データベース</th>
+          <td>SQLite／PostgreSQL（学習中）</td>
+        </tr>
+        <tr>
+          <th>インフラ・ツール</th>
+          <td>Docker／Git／GitHub／GitHub Actions（CI）／Linux コマンドライン</td>
+        </tr>
+        <tr>
+          <th>その他</th>
+          <td>Android アプリ開発（Kotlin / Java）／Gemini API 連携／LiDAR を用いたハードウェア制御</td>
+        </tr>
+      </tbody>
+    </table>
+
+    <h2>実務経験</h2>
+
+    <div class="job">
+      <div class="job-head">
+        <div class="job-title">株式会社ナノベース<span class="badge">業務委託</span></div>
+        <div class="job-period">2026年6月頃 ／ 約1か月</div>
+      </div>
+      <table>
+        <tbody>
+          <tr><th>職種</th><td>フルスタックエンジニア</td></tr>
+          <tr><th>雇用形態</th><td>業務委託（時給 3,500円）</td></tr>
+          <tr><th>担当</th><td>要件の確認、設計、実装、動作確認、納品</td></tr>
+          <tr><th>使用技術</th><td>（<span style="color:#b45309">要記入</span>：実際に使用した言語・フレームワークを記載）</td></tr>
+          <tr><th>成果・学び</th><td>業務委託として期限内に成果物を納品。報連相・レビュー対応・納期管理など、実務の進め方を習得。</td></tr>
+        </tbody>
+      </table>
+    </div>
+
+    <div class="job">
+      <div class="job-head">
+        <div class="job-title">株式会社ビーライズ<span class="badge">インターン</span></div>
+        <div class="job-period">2025年8月頃 ／ 約2週間</div>
+      </div>
+      <table>
+        <tbody>
+          <tr><th>職種</th><td>XRエンジニア</td></tr>
+          <tr><th>雇用形態</th><td>インターン（時給 1,500円）</td></tr>
+          <tr><th>担当</th><td>XR 領域の開発補助、実機を用いた動作検証</td></tr>
+          <tr><th>使用技術</th><td>（<span style="color:#b45309">要記入</span>：実際に使用したエンジン・言語を記載）</td></tr>
+          <tr><th>成果・学び</th><td>チーム開発のフローと、実機検証の進め方を経験。</td></tr>
+        </tbody>
+      </table>
+    </div>
+
+    <div class="note">
+      ※ 上記2社の「使用技術」は、実際に担当した内容を正確に記入してください。面接で必ず聞かれる項目です。
+    </div>
+
+    <h2>個人開発（主要プロジェクト）</h2>
+    <table>
+      <thead>
+        <tr><th>プロジェクト</th><th>概要</th><th>使用技術</th></tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td><strong>TaskFlow API</strong><br><a href="https://github.com/Kohaku912/taskflow-api">GitHub</a></td>
+          <td>タスク管理の REST API。JWT 認証、検索・フィルタ・ソート、ページネーション、ユーザー単位のデータ分離。
+            テスト 30 件・カバレッジ 97%。Docker（非 root）と GitHub Actions CI を整備。</td>
+          <td>Python / FastAPI / SQLAlchemy / Pydantic / pytest / Docker</td>
+        </tr>
+        <tr>
+          <td><strong>JARVIS（仮）</strong><br><a href="https://github.com/Kohaku912/JARVIS">GitHub</a></td>
+          <td>音声で操作する AI アシスタント。ウェイクワード検出と生成 AI を組み合わせた。</td>
+          <td>Kotlin / Gemini API / Porcupine</td>
+        </tr>
+        <tr>
+          <td><strong>まなとも</strong><br><a href="https://ai-friend-theta.vercel.app/">デモ</a></td>
+          <td>各教科の AI が会話の中で問題を出題する学習アプリ。第6回学力向上アプリコンテスト 優秀賞。</td>
+          <td>React / Gemini API / Vercel</td>
+        </tr>
+        <tr>
+          <td><strong>robotarm</strong><br><a href="https://github.com/Kohaku912/robotarm">GitHub</a></td>
+          <td>LiDAR を用いて、部屋の中の物を把持・運搬するロボットアームの制御。</td>
+          <td>Python</td>
+        </tr>
+        <tr>
+          <td><strong>RealNote</strong><br><a href="https://github.com/Kohaku912/RealNote">GitHub</a></td>
+          <td>「ちぎれる」操作感のメモ帳。ZenStudy 動く web ページコンテスト 優秀賞。</td>
+          <td>HTML / CSS / JavaScript</td>
+        </tr>
+        <tr>
+          <td><strong>MyMuseum</strong><br><a href="https://github.com/Kohaku912/MyMuseum">GitHub</a></td>
+          <td>WebGL で作った自分だけの 3D ミュージアム。</td>
+          <td>HTML / JavaScript / WebGL</td>
+        </tr>
+      </tbody>
+    </table>
+
+    <h2>資格・受賞</h2>
+    <table>
+      <tbody>
+        <tr><th>2025年9月</th><td>基本情報技術者試験 合格</td></tr>
+        <tr><th>2025年8月</th><td>AtCoder 水色（Rating 1249 / 4級）</td></tr>
+        <tr><th>2025年10月</th><td>第6回 学力向上アプリコンテスト 優秀賞（「まなとも」）</td></tr>
+        <tr><th>2025年10月</th><td>ZenStudy 動く web ページコンテスト 優秀賞（「RealNote」）</td></tr>
+        <tr><th>2025年3月</th><td>ZEN Study 動く Web アプリコンテスト 冬 ラムダ技術部特別賞</td></tr>
+        <tr><th>2026年9月</th><td>普通自動車第一種運転免許（AT限定）取得</td></tr>
+      </tbody>
+    </table>
+
+    <h2>学歴</h2>
+    <table>
+      <tbody>
+        <tr><th>2024年4月</th><td>N高等学校 入学（通学プログラミングコース）</td></tr>
+        <tr><th>2025年4月</th><td>N高等学校 3年次よりネットコースへ変更</td></tr>
+        <tr><th>2027年3月</th><td>N高等学校 卒業見込み</td></tr>
+      </tbody>
+    </table>
+
+    <h2>自己PR</h2>
+    <ul>
+      <li><strong>継続力</strong>：高校在学中から約4年間、独学でプログラミングを継続し、複数のコンテストで受賞しました。</li>
+      <li><strong>実装から逃げない</strong>：作りたいものを最後まで形にします。TaskFlow API では、認証・テスト・Docker・CI まで一通り自分で組みました。</li>
+      <li><strong>基礎の裏付け</strong>：基本情報技術者試験に合格し、AtCoder では水色（Rating 1249）です。</li>
+      <li><strong>実務の経験</strong>：インターンと業務委託を合わせて約1.5か月、実際の業務として納品まで経験しました。</li>
+    </ul>
+
+    <h2>働き方の希望</h2>
+    <table>
+      <tbody>
+        <tr><th>雇用形態</th><td>正社員</td></tr>
+        <tr><th>勤務地</th><td>フルリモート可（月1回程度の出社には対応可）</td></tr>
+        <tr><th>入社時期</th><td>2027年3月以降</td></tr>
+        <tr><th>希望年収</th><td>300万円以上</td></tr>
+        <tr><th>残業</th><td>許容可</td></tr>
+      </tbody>
+    </table>
+
+  </div>
+
+</body>
+
+</html>

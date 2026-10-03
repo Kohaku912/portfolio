@@ -1,10 +1,16 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="ja">
 
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Tatsuki's Portfolio</title>
+  <title>Tatsuki | エンジニア ポートフォリオ</title>
+  <meta name="description" content="N高等学校 2027年3月卒業見込み。Python / Java / Kotlin / C++ を中心に、バックエンドとアプリ開発に取り組むエンジニアのポートフォリオ。基本情報技術者、AtCoder 水色。実務経験（インターン・業務委託）あり。" />
+  <meta name="author" content="Tatsuki" />
+  <meta property="og:title" content="Tatsuki | エンジニア ポートフォリオ" />
+  <meta property="og:description" content="バックエンド／アプリ開発。実務経験あり・基本情報技術者・AtCoder 水色。" />
+  <meta property="og:type" content="website" />
+  <meta property="og:url" content="https://kohaku912.github.io/portfolio/" />
   <link rel="icon"
     href="https://raw.githubusercontent.com/Kohaku912/portfolio/refs/heads/main/assets/icons/favicon.ico">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
@@ -21,21 +27,27 @@
   <main>
     <section id="hero" class="section hero">
       <div class="social-icons-container">
-        <a href="https://github.com/Kohaku912" target="_blank" aria-label="GitHub">
+        <a href="https://github.com/Kohaku912" target="_blank" rel="noopener" aria-label="GitHub">
           <i class="fab fa-github"></i>
         </a>
-        <a href="https://youtu.be/jNQXAC9IVRw?si=JnAkF3mAvSVDl2Hk" target="_blank" aria-label="YouTube">
-          <i class="fab fa-youtube"></i>
+        <a href="resume.html" aria-label="職務経歴書">
+          <i class="fas fa-file-alt"></i>
         </a>
-        <a href="https://x.com/elonmusk" target="_blank" aria-label="X (Twitter)">
-          <i class="fab fa-twitter"></i>
-          <a href="https://www.instagram.com/zuck/" target="_blank" aria-label="Instagram">
-            <i class="fab fa-instagram"></i>
-          </a>
-          <div class="social-line"></div>
+        <a href="https://atcoder.jp/users/tatuki912" target="_blank" rel="noopener" aria-label="AtCoder">
+          <i class="fas fa-chart-line"></i>
+        </a>
+        <a href="mailto:CONTACT_EMAIL_HERE" aria-label="メール">
+          <i class="fas fa-envelope"></i>
+        </a>
+        <div class="social-line"></div>
       </div>
-      <h1>Hi, I’m Tatsuki </h1>
-      <p>Software Engineer</p>
+      <h1>Hi, I'm Tatsuki </h1>
+      <p>Software Engineer / Backend</p>
+      <p class="hero-note">N高等学校 3年次（ネットコース）｜2027年3月 卒業見込み｜実務経験あり</p>
+      <div class="hero-actions">
+        <a class="hero-btn" href="resume.html">職務経歴書を見る</a>
+        <a class="hero-btn ghost" href="https://github.com/Kohaku912" target="_blank" rel="noopener">GitHub</a>
+      </div>
     </section>
     <section id="profile" class="section">
       <h2>About me</h2>
@@ -43,11 +55,45 @@
         <img src="https://raw.githubusercontent.com/Kohaku912/portfolio/refs/heads/main/assets/icons/icon.png"
           alt="Mascot Icon" class="about-icon" />
         <p class="about-text">
-          こんにちは！私はN高等学校2年生で、梅田キャンパスの通学プログラミングコースに在籍しています。<br><br>
-          約4年間、Pythonを中心にプログラミングを学習しており、Windowsアプリケーション、スマートフォンアプリ、Webアプリケーション、PCゲームなど幅広い分野の開発に取り組んできました。最近では、LiDARを活用した部屋の中で取りたいものをとってきてくれるロボットの開発とAIを用いたJARVISのようなAIアシスタントの開発に挑戦しており、ハードウェアとソフトウェアを組み合わせた技術に強い関心を持っています。
-          将来的には、普段の生活を便利にできる分野で活躍したいと考えており、テクノロジーの力で日常生活の課題を解決する開発者を目指しています。
+          こんにちは、Tatsuki です。<strong>N高等学校 3年次（ネットコース）</strong>に在籍し、2027年3月に卒業見込みです。<br><br>
+          約4年間、Python を中心にプログラミングを学び、Web アプリケーション、スマートフォンアプリ、Windows アプリ、PC ゲームまで幅広く開発してきました。直近は
+          <strong>サーバーサイド（API 設計・認証・DB・テスト）</strong>と、LiDAR を使ったロボット、AI アシスタントの開発に取り組んでいます。<br><br>
+          <strong>実務経験</strong>として、株式会社ビーライズで XR エンジニアのインターン（約2週間）、株式会社ナノベースでフルスタックエンジニアとして業務委託（約1か月）を経験しました。仕様の確認から実装、動作確認まで一通り担当しています。<br><br>
+          テクノロジーの力で日常の課題を解決する開発者を目指しています。
         </p>
       </div>
+    </section>
+
+    <section id="experience" class="section">
+      <h2>EXPERIENCE</h2>
+      <div class="exp-list">
+        <div class="exp-card">
+          <div class="exp-head">
+            <h3 class="exp-company">株式会社ナノベース</h3>
+            <span class="exp-badge">業務委託</span>
+          </div>
+          <div class="exp-meta">2026年6月頃 ｜ 約1か月 ｜ フルスタックエンジニア ｜ 時給 3,500円</div>
+          <p class="exp-desc">
+            業務委託としてフルスタック開発に従事。要件の確認から実装・動作確認までを担当し、
+            期限内に成果物を納品しました。実務の進め方（報連相・レビュー対応・納期管理）を学びました。
+          </p>
+          <a class="exp-link" href="https://www.nanobase.co.jp/" target="_blank" rel="noopener">https://www.nanobase.co.jp/</a>
+        </div>
+        <div class="exp-card">
+          <div class="exp-head">
+            <h3 class="exp-company">株式会社ビーライズ</h3>
+            <span class="exp-badge">インターン</span>
+          </div>
+          <div class="exp-meta">2025年8月頃 ｜ 約2週間 ｜ XRエンジニア ｜ 時給 1,500円</div>
+          <p class="exp-desc">
+            XR 領域の開発にインターンとして参加。チームでの開発フローと、実機を使った検証の進め方を経験しました。
+          </p>
+          <a class="exp-link" href="https://berise.co.jp/" target="_blank" rel="noopener">https://berise.co.jp/</a>
+        </div>
+      </div>
+      <p class="exp-note">
+        ※ 実務経験の詳細（担当工程・使用技術・成果）は <a href="resume.html">職務経歴書</a> にまとめています。
+      </p>
     </section>
 
     <section id="skill" class="section skills">
@@ -240,13 +286,33 @@
             </svg></div>
         </div>
       </div>
-      <div class="skill-title">html</div>
+      <div class="skill-title">SKILL</div>
+      <div class="skill-note">
+        バックエンド：FastAPI・SQLAlchemy・REST API 設計・JWT 認証・pytest・Docker／
+        DB：SQLite・PostgreSQL（学習中）／
+        その他：Git・GitHub Actions・Linux
+      </div>
     </section>
     <section id="works" class="section works">
       <h2 class="works-title">WORKS</h2>
       <div class="carousel-container swiper">
         <div class="swiper-wrapper">
-          <a class="swiper-slide project-card" href="https://github.com/Kohaku912/JARVIS/tree/main" target="_blank">
+          <a class="swiper-slide project-card" href="https://github.com/Kohaku912/taskflow-api" target="_blank" rel="noopener">
+            <div class="project-image">
+              <img src="assets/imgs/taskflow-api.svg" alt="TaskFlow API の画像">
+            </div>
+            <h3 class="project-title">TaskFlow API</h3>
+            <p class="project-description">
+              FastAPI 製のタスク管理 REST API。JWT 認証・検索・ページング・テストカバレッジ 97%・Docker・CI まで自作。
+            </p>
+            <div class="project-tags">
+              <span class="tag">Python</span>
+              <span class="tag">FastAPI</span>
+              <span class="tag">SQLAlchemy</span>
+              <span class="tag">Docker</span>
+            </div>
+          </a>
+          <a class="swiper-slide project-card" href="https://github.com/Kohaku912/JARVIS/tree/main" target="_blank" rel="noopener">
             <div class="project-image">
               <img src="https://github.com/Kohaku912/JARVIS/blob/main/images/home.jpg?raw=true"
                 alt="JARVISの画像">
@@ -343,7 +409,6 @@
           </a>
         </div>
         <div class="swiper-pagination"></div>
-      </div>
       </div>
     </section>
     <section id="timeline" class="section achievements">
@@ -451,6 +516,7 @@
     <span class="dot" data-index="2"></span>
     <span class="dot" data-index="3"></span>
     <span class="dot" data-index="4"></span>
+    <span class="dot" data-index="5"></span>
   </div>
 
   <script src="script.js"></script>

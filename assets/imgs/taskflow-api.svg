@@ -1,0 +1,48 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 640 360" width="640" height="360" role="img" aria-label="TaskFlow API">
+  <defs>
+    <linearGradient id="bg" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0%" stop-color="#0f172a"/>
+      <stop offset="100%" stop-color="#1e3a8a"/>
+    </linearGradient>
+    <linearGradient id="accent" x1="0" y1="0" x2="1" y2="0">
+      <stop offset="0%" stop-color="#22d3ee"/>
+      <stop offset="100%" stop-color="#34d399"/>
+    </linearGradient>
+  </defs>
+
+  <rect width="640" height="360" fill="url(#bg)"/>
+
+  <!-- グリッド -->
+  <g stroke="#38bdf8" stroke-opacity="0.12" stroke-width="1">
+    <path d="M0 60H640M0 120H640M0 180H640M0 240H640M0 300H640"/>
+    <path d="M80 0V360M160 0V360M240 0V360M320 0V360M400 0V360M480 0V360M560 0V360"/>
+  </g>
+
+  <text x="48" y="86" font-family="Segoe UI, Meiryo, sans-serif" font-size="38" font-weight="700" fill="#f8fafc">TaskFlow API</text>
+  <text x="48" y="122" font-family="Segoe UI, Meiryo, sans-serif" font-size="17" fill="#93c5fd">FastAPI · SQLAlchemy · JWT · pytest · Docker</text>
+
+  <rect x="48" y="150" width="544" height="2" fill="url(#accent)"/>
+
+  <g font-family="Consolas, Menlo, monospace" font-size="15" fill="#e2e8f0">
+    <text x="48" y="190">POST /auth/register</text>
+    <text x="48" y="218">POST /auth/token</text>
+    <text x="48" y="246">GET&#160;&#160;/tasks?q=...&amp;status=todo&amp;page=1</text>
+    <text x="48" y="274">PATCH /tasks/{id}</text>
+  </g>
+
+  <g font-family="Consolas, Menlo, monospace" font-size="14" fill="#34d399">
+    <text x="470" y="190">201</text>
+    <text x="470" y="218">200</text>
+    <text x="470" y="246">200</text>
+    <text x="470" y="274">200</text>
+  </g>
+
+  <g>
+    <rect x="48" y="300" width="132" height="28" rx="14" fill="#0e7490" fill-opacity="0.45" stroke="#22d3ee" stroke-opacity="0.6"/>
+    <text x="114" y="319" text-anchor="middle" font-family="Segoe UI, sans-serif" font-size="13" fill="#cffafe">coverage 97%</text>
+    <rect x="192" y="300" width="112" height="28" rx="14" fill="#065f46" fill-opacity="0.45" stroke="#34d399" stroke-opacity="0.6"/>
+    <text x="248" y="319" text-anchor="middle" font-family="Segoe UI, sans-serif" font-size="13" fill="#d1fae5">30 tests</text>
+    <rect x="316" y="300" width="120" height="28" rx="14" fill="#1e3a8a" fill-opacity="0.6" stroke="#93c5fd" stroke-opacity="0.6"/>
+    <text x="376" y="319" text-anchor="middle" font-family="Segoe UI, sans-serif" font-size="13" fill="#dbeafe">CI: 3.11-3.13</text>
+  </g>
+</svg>
