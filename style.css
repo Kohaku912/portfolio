@@ -1299,13 +1299,6 @@ body { overflow: visible; }
 
 /* 10. 連絡（CTA） */
 .contact { text-align: center; }
-.cta-lead {
-  font-size: clamp(0.95rem, 1.8vw, 1.15rem);
-  line-height: 2;
-  color: rgba(255, 255, 255, 0.9);
-  max-width: 760px;
-  margin: 0 auto;
-}
 .contact-actions {
   display: flex;
   gap: 0.9rem;
