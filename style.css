@@ -1097,4 +1097,282 @@ button:focus,
   .exp-card {
     padding: 1rem;
   }
+}/* ==========================================================================
+   v2 (2026-10-07) — 通常スクロール化 / 内容の切り捨て解消 / 新しい並び
+   既存の規則は残したまま、後勝ちで上書きする。
+   ========================================================================== */
+
+/* 1. 縦の通常スクロールにする（ページ送りの scroll-jack をやめた） */
+html { overflow-x: hidden; }
+body { overflow: visible; }
+
+/* 2. 各節の高さを内容に任せる（100vh 固定をやめる） */
+.section {
+  height: auto;
+  max-height: none;
+  min-height: 0;
+  overflow: visible;
+  justify-content: flex-start;
+  padding: clamp(3.5rem, 9vh, 6rem) clamp(1rem, 5vw, 2rem);
 }
+
+#hero.section {
+  min-height: 100vh;
+  justify-content: center;
+  padding-top: 2.5rem;
+}
+
+/* 3. いままで切り捨てられていた内容を全部見せる */
+.about-me { height: auto; max-height: none; overflow: visible; }
+.about-text {
+  overflow: visible;
+  display: block;
+  -webkit-line-clamp: unset;
+  max-width: 620px;
+}
+.icon-section { height: auto; max-height: none; }
+.exp-list { max-height: none; overflow: visible; }
+.timeline-container {
+  overflow: visible;
+  max-height: none;
+  width: min(760px, 100%);
+  padding: clamp(1rem, 3vw, 1.75rem);
+  background: rgba(255, 255, 255, 0.03);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  border-radius: 16px;
+}
+.timeline-container::-webkit-scrollbar { display: none; }
+
+/* 4. ドットをリンクにする（クリックでその節へ移動） */
+.page-indicator .dot { display: block; }
+.page-indicator .dot:hover { background: rgba(164, 0, 255, 0.6); }
+
+/* 5. ヒーローの一行説明 */
+.hero .hero-lead {
+  font-size: clamp(1rem, 2.2vw, 1.5rem);
+  font-weight: 300;
+  line-height: 1.8;
+  letter-spacing: 0.02em;
+  color: rgba(255, 255, 255, 0.92);
+  max-width: 760px;
+  margin: 0.4rem auto 0;
+}
+.hero-lead strong { color: #d8b4fe; font-weight: 700; }
+
+/* 5b. 名前の大きさ。v1 の clamp(3rem, 8vw, 6rem) はローマ字併記（Tatsuki Kawahara / 河原 樹）
+   にすると画面幅を超え、左のアイコンと重なり右端が切れていた（実測して縮めた）。 */
+.hero h1 {
+  font-size: clamp(1.8rem, 4.4vw, 3.2rem);
+  line-height: 1.2;
+}
+
+/* 6. 節の補足説明 */
+.section-sub {
+  text-align: center;
+  color: rgba(255, 255, 255, 0.7);
+  font-size: clamp(0.85rem, 1.5vw, 1rem);
+  line-height: 1.8;
+  margin: -0.6rem auto 2.2rem;
+  max-width: 720px;
+}
+
+/* 7. 代表作 3 件（大きく） */
+.work-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+  gap: clamp(1rem, 2.5vw, 1.75rem);
+  width: min(1120px, 100%);
+}
+.work-card {
+  display: flex;
+  flex-direction: column;
+  gap: 0.7rem;
+  padding: clamp(1.1rem, 2.5vw, 1.7rem);
+  background: rgba(255, 255, 255, 0.05);
+  border: 1px solid rgba(255, 255, 255, 0.12);
+  border-radius: 18px;
+  transition: transform 0.25s ease, border-color 0.25s ease, box-shadow 0.25s ease;
+}
+.work-card:hover {
+  transform: translateY(-4px);
+  border-color: #3c00ff;
+  box-shadow: 0 16px 34px rgba(60, 0, 255, 0.28);
+}
+.work-head { display: flex; align-items: center; gap: 0.7rem; flex-wrap: wrap; }
+.work-title { font-size: clamp(1.25rem, 2.4vw, 1.6rem); font-weight: 700; color: #ffffff; }
+.work-kind {
+  font-size: 0.72rem;
+  font-weight: 700;
+  letter-spacing: 0.06em;
+  padding: 0.2rem 0.7rem;
+  border-radius: 999px;
+  color: #e9d5ff;
+  background: rgba(164, 0, 255, 0.28);
+  border: 1px solid rgba(164, 0, 255, 0.6);
+}
+.work-row {
+  font-size: clamp(0.85rem, 1.4vw, 0.95rem);
+  line-height: 1.85;
+  color: rgba(255, 255, 255, 0.87);
+}
+.work-label {
+  display: inline-block;
+  min-width: 5.2em;
+  margin-right: 0.5rem;
+  color: #c4b5fd;
+  font-weight: 700;
+  font-size: 0.82em;
+  letter-spacing: 0.08em;
+}
+.work-link {
+  margin-top: auto;
+  padding-top: 0.3rem;
+  color: #9ecbff;
+  font-size: 0.86rem;
+  font-weight: 600;
+  text-decoration: none;
+}
+.work-link:hover { text-decoration: underline; }
+
+/* 8. その他の制作物（小さく） */
+.mini-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+  gap: 1rem;
+  width: min(1000px, 100%);
+}
+.mini-card {
+  display: flex;
+  flex-direction: column;
+  gap: 0.6rem;
+  padding: 1.1rem 1.25rem;
+  background: rgba(255, 255, 255, 0.035);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  border-radius: 14px;
+  color: inherit;
+  text-decoration: none;
+  transition: border-color 0.25s ease, background 0.25s ease;
+}
+.mini-card:hover { border-color: rgba(164, 0, 255, 0.55); background: rgba(164, 0, 255, 0.07); }
+.mini-head { display: flex; align-items: center; gap: 0.55rem; flex-wrap: wrap; }
+.mini-head h3 { font-size: 1.05rem; font-weight: 700; color: #ffffff; }
+.mini-award {
+  font-size: 0.7rem;
+  font-weight: 700;
+  padding: 0.15rem 0.6rem;
+  border-radius: 999px;
+  color: #fde68a;
+  background: rgba(245, 158, 11, 0.18);
+  border: 1px solid rgba(245, 158, 11, 0.5);
+}
+.mini-card p { font-size: 0.86rem; line-height: 1.7; color: rgba(255, 255, 255, 0.8); }
+.more-link {
+  margin-top: 1.6rem;
+  text-align: center;
+  font-size: 0.84rem;
+  color: rgba(255, 255, 255, 0.62);
+}
+.more-link a { color: #c4b5fd; }
+
+/* 9. スキルの表 */
+.skill-table {
+  width: min(900px, 100%);
+  margin: 1.4rem auto 0;
+  border-collapse: collapse;
+  font-size: clamp(0.8rem, 1.4vw, 0.92rem);
+}
+.skill-table th,
+.skill-table td {
+  border: 1px solid rgba(255, 255, 255, 0.12);
+  padding: 0.7rem 0.9rem;
+  text-align: left;
+  vertical-align: top;
+  line-height: 1.7;
+}
+.skill-table th {
+  white-space: nowrap;
+  color: #e9d5ff;
+  background: rgba(164, 0, 255, 0.12);
+  font-weight: 700;
+}
+.skill-table td { color: rgba(255, 255, 255, 0.85); }
+
+/* 10. 連絡（CTA） */
+.contact { text-align: center; }
+.cta-lead {
+  font-size: clamp(0.95rem, 1.8vw, 1.15rem);
+  line-height: 2;
+  color: rgba(255, 255, 255, 0.9);
+  max-width: 760px;
+  margin: 0 auto;
+}
+.contact-actions {
+  display: flex;
+  gap: 0.9rem;
+  flex-wrap: wrap;
+  justify-content: center;
+  margin: 1.8rem 0 1.4rem;
+}
+.contact-list { display: flex; gap: 1.4rem; flex-wrap: wrap; justify-content: center; }
+.contact-list a { color: #9ecbff; font-size: 0.9rem; text-decoration: none; }
+.contact-list a:hover { text-decoration: underline; }
+
+/* 11. モバイル */
+@media (max-width: 768px) {
+  .section { padding: 2.75rem 1rem; }
+  #hero.section { min-height: 92vh; padding-top: 1.25rem; }
+  .work-grid { grid-template-columns: 1fr; }
+  .mini-grid { grid-template-columns: 1fr; }
+  .work-label { display: block; min-width: 0; margin: 0 0 0.2rem; }
+  .timeline-container { padding: 1rem; }
+  .contact-list { flex-direction: column; gap: 0.6rem; }
+}
+
+@media (max-width: 480px) {
+  .section { padding: 2.25rem 0.75rem; }
+  .skill-table { font-size: 0.78rem; }
+  .skill-table th,
+  .skill-table td { padding: 0.55rem 0.5rem; }
+  .skill-table th { white-space: normal; }
+}
+
+/* 7b. 代表作カードの図。SVG なので object-fit は contain（cover だと切れる） */
+.work-card .project-image {
+  height: clamp(130px, 16vw, 170px);
+  background: rgba(255, 255, 255, 0.03);
+  border: 1px solid rgba(255, 255, 255, 0.07);
+}
+.work-card .project-image img { object-fit: contain; }
+
+/* 12b. .exp-list は v1 で width: min(880px, 92vw)。92vw は画面幅基準なので
+   上の余白を無視してはみ出す（実測: 900px で 18px 重なった）→ 100% 基準にする。 */
+.exp-list { width: min(880px, 100%); }
+
+/* 12. 固定した左右のバー（左のアイコン列・右のドット）と本文が重ならないよう余白を確保する。
+   実測: 1024px で .work-grid の左端 32px に対しアイコンの右端 66px → 34px 重なっていた。
+   アイコンは左 1rem(<=1024) / 2rem(>1024)、幅 50px。ドットは右 1rem / 2rem、幅 12px。 */
+@media (min-width: 1025px) {
+  main { padding-left: 6rem; padding-right: 4.5rem; }
+}
+
+@media (min-width: 769px) and (max-width: 1024px) {
+  main { padding-left: 5rem; padding-right: 3.5rem; }
+}
+
+/* 13. モバイルではドットが画面下に浮く（v1 からの設計）。通常スクロールになったので
+   本文の上に乗る。ただの点だと文字と紛れるため、背景つきの「浮いたナビ」にする。 */
+@media (max-width: 768px) {
+  .page-indicator {
+    bottom: 1rem;
+    gap: 0.7rem;
+    padding: 0.5rem 0.85rem;
+    border-radius: 999px;
+    background: rgba(13, 13, 13, 0.72);
+    border: 1px solid rgba(255, 255, 255, 0.12);
+    backdrop-filter: blur(8px);
+  }
+  .page-indicator .dot { width: 10px; height: 10px; }
+  main { padding-bottom: 4.5rem; }
+}
+
+/* ===== v2 end ===== */

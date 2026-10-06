@@ -4,27 +4,24 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Tatsuki | エンジニア ポートフォリオ</title>
-  <meta name="description" content="N高等学校 2027年3月卒業見込み。Python / Java / Kotlin / C++ を中心に、バックエンドとアプリ開発に取り組むエンジニアのポートフォリオ。基本情報技術者、AtCoder 水色。実務経験（インターン・業務委託）あり。" />
-  <meta name="author" content="Tatsuki" />
-  <meta property="og:title" content="Tatsuki | エンジニア ポートフォリオ" />
-  <meta property="og:description" content="バックエンド／アプリ開発。実務経験あり・基本情報技術者・AtCoder 水色。" />
+  <title>河原 樹（Tatsuki Kawahara）| エンジニア ポートフォリオ</title>
+  <meta name="description"
+    content="N高等学校 2027年3月卒業見込み。Python（FastAPI）のサーバーサイド、C による低レイヤ、LiDAR を使ったハードウェア制御まで、設計からテストまで自分で書くエンジニア。基本情報技術者、AtCoder 水色。実務経験（インターン・業務委託）あり。" />
+  <meta name="author" content="河原 樹（Tatsuki Kawahara）" />
+  <meta property="og:title" content="河原 樹（Tatsuki Kawahara）| エンジニア ポートフォリオ" />
+  <meta property="og:description" content="サーバーサイド／低レイヤ／ハードウェア制御。実務経験あり・基本情報技術者・AtCoder 水色。" />
   <meta property="og:type" content="website" />
   <meta property="og:url" content="https://kohaku912.github.io/portfolio/" />
   <link rel="icon"
     href="https://raw.githubusercontent.com/Kohaku912/portfolio/refs/heads/main/assets/icons/favicon.ico">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
   <link rel="stylesheet" href="style.css" />
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r134/three.min.js"></script>
-  <script src="https://cdn.jsdelivr.net/npm/vanta@latest/dist/vanta.net.min.js"></script>
-  <script src="https://cdn.jsdelivr.net/npm/vanta@latest/dist/vanta.birds.min.js"></script>
-  <link rel="stylesheet" href="https://unpkg.com/swiper@8/swiper-bundle.min.css" />
 </head>
 
 <body>
 
-
   <main>
+    <!-- ===== 1. ヒーロー ===== -->
     <section id="hero" class="section hero">
       <div class="social-icons-container">
         <a href="https://github.com/Kohaku912" target="_blank" rel="noopener" aria-label="GitHub">
@@ -36,71 +33,89 @@
         <a href="https://atcoder.jp/users/tatuki912" target="_blank" rel="noopener" aria-label="AtCoder">
           <i class="fas fa-chart-line"></i>
         </a>
-        <a href="mailto:CONTACT_EMAIL_HERE" aria-label="メール">
+        <a href="mailto:k3320138@gmail.com" aria-label="メール">
           <i class="fas fa-envelope"></i>
         </a>
         <div class="social-line"></div>
       </div>
-      <h1>Hi, I'm Tatsuki </h1>
-      <p>Software Engineer / Backend</p>
-      <p class="hero-note">N高等学校 3年次（ネットコース）｜2027年3月 卒業見込み｜実務経験あり</p>
+      <h1>Tatsuki Kawahara / 河原 樹</h1>
+      <p class="hero-lead">サーバーサイドからハードウェア制御まで、<strong>設計・実装・テストを自分で書く</strong>エンジニアです。</p>
+      <p class="hero-note">N高等学校 3年次（ネットコース）｜2027年3月 卒業見込み｜実務経験（インターン・業務委託）あり</p>
       <div class="hero-actions">
-        <a class="hero-btn" href="resume.html">職務経歴書を見る</a>
+        <a class="hero-btn" href="#works">代表作を見る</a>
         <a class="hero-btn ghost" href="https://github.com/Kohaku912" target="_blank" rel="noopener">GitHub</a>
-      </div>
-    </section>
-    <section id="profile" class="section">
-      <h2>About me</h2>
-      <div class="about-me">
-        <img src="https://raw.githubusercontent.com/Kohaku912/portfolio/refs/heads/main/assets/icons/icon.png"
-          alt="Mascot Icon" class="about-icon" />
-        <p class="about-text">
-          こんにちは、Tatsuki です。<strong>N高等学校 3年次（ネットコース）</strong>に在籍し、2027年3月に卒業見込みです。<br><br>
-          約4年間、Python を中心にプログラミングを学び、Web アプリケーション、スマートフォンアプリ、Windows アプリ、PC ゲームまで幅広く開発してきました。直近は
-          <strong>サーバーサイド（API 設計・認証・DB・テスト）</strong>と、LiDAR を使ったロボット、AI アシスタントの開発に取り組んでいます。<br><br>
-          <strong>実務経験</strong>として、株式会社ビーライズで XR エンジニアのインターン（約2週間）、株式会社ナノベースでフルスタックエンジニアとして業務委託（約1か月）を経験しました。仕様の確認から実装、動作確認まで一通り担当しています。<br><br>
-          テクノロジーの力で日常の課題を解決する開発者を目指しています。
-        </p>
+        <a class="hero-btn ghost" href="resume.html">職務経歴書</a>
       </div>
     </section>
 
-    <section id="experience" class="section">
-      <h2>EXPERIENCE</h2>
-      <div class="exp-list">
-        <div class="exp-card">
-          <div class="exp-head">
-            <h3 class="exp-company">株式会社ナノベース</h3>
-            <span class="exp-badge">業務委託</span>
+    <!-- ===== 2. 代表作 3 件 ===== -->
+    <section id="works" class="section">
+      <h2>代表作</h2>
+      <p class="section-sub">「何を作れるか」を示す 3 件。課題 → やったこと → 結果 の順で書いています。</p>
+      <div class="work-grid">
+
+        <article class="work-card">
+          <div class="project-image">
+            <img src="assets/imgs/taskflow-api.svg" alt="TaskFlow API の図" />
           </div>
-          <div class="exp-meta">2026年6月頃 ｜ 約1か月 ｜ フルスタックエンジニア ｜ 時給 3,500円</div>
-          <p class="exp-desc">
-            業務委託としてフルスタック開発に従事。要件の確認から実装・動作確認までを担当し、
-            期限内に成果物を納品しました。実務の進め方（報連相・レビュー対応・納期管理）を学びました。
-          </p>
-          <a class="exp-link" href="https://www.nanobase.co.jp/" target="_blank" rel="noopener">https://www.nanobase.co.jp/</a>
-        </div>
-        <div class="exp-card">
-          <div class="exp-head">
-            <h3 class="exp-company">株式会社ビーライズ</h3>
-            <span class="exp-badge">インターン</span>
+          <div class="work-head">
+            <h3 class="work-title">TaskFlow API</h3>
+            <span class="work-kind">バックエンド</span>
           </div>
-          <div class="exp-meta">2025年8月頃 ｜ 約2週間 ｜ XRエンジニア ｜ 時給 1,500円</div>
-          <p class="exp-desc">
-            XR 領域の開発にインターンとして参加。チームでの開発フローと、実機を使った検証の進め方を経験しました。
-          </p>
-          <a class="exp-link" href="https://berise.co.jp/" target="_blank" rel="noopener">https://berise.co.jp/</a>
-        </div>
+          <p class="work-row"><span class="work-label">課題</span>タスク管理を、認証・検索・ページング・ユーザーごとのデータ分離まで含めて一通り作る。</p>
+          <p class="work-row"><span class="work-label">やったこと</span>FastAPI で REST API を設計・実装。JWT 認証、検索・フィルタ・ソート、ページネーションを実装し、pytest でテストを書いた。Docker（非 root）と GitHub Actions CI を整備。</p>
+          <p class="work-row"><span class="work-label">結果</span>テスト 30 件・カバレッジ 97%。Docker と CI が通る状態で公開している。</p>
+          <div class="project-tags">
+            <span class="tag">Python</span><span class="tag">FastAPI</span><span class="tag">SQLAlchemy</span>
+            <span class="tag">pytest</span><span class="tag">Docker</span>
+          </div>
+          <a class="work-link" href="https://github.com/Kohaku912/taskflow-api" target="_blank" rel="noopener">GitHub で見る →</a>
+        </article>
+
+        <article class="work-card">
+          <div class="project-image">
+            <img src="assets/imgs/aegis.svg" alt="AEGIS の図" />
+          </div>
+          <div class="work-head">
+            <h3 class="work-title">AEGIS</h3>
+            <span class="work-kind">設計・複数サーバー</span>
+          </div>
+          <p class="work-row"><span class="work-label">課題</span>LLM に依存せず、副作用を統制できる自律型アシスタントを、役割ごとに分けた複数プロセスで作る。</p>
+          <p class="work-row"><span class="work-label">やったこと</span>6 サーバー構成を設計。Python / Rust / Kotlin / TypeScript を gRPC で疎結合に接続し、決定論的なポリシーエンジンで副作用を統制。サーバーをまたがる性質をテストで固定した。</p>
+          <p class="work-row"><span class="work-label">結果</span>Python 533 モジュール・テスト 657 件・設計文書 56 件。</p>
+          <div class="project-tags">
+            <span class="tag">Python</span><span class="tag">Rust</span><span class="tag">Kotlin</span>
+            <span class="tag">TypeScript</span><span class="tag">gRPC</span>
+          </div>
+          <a class="work-link" href="https://github.com/Kohaku912/AEGIS" target="_blank" rel="noopener">GitHub で見る →</a>
+        </article>
+
+        <article class="work-card">
+          <div class="project-image">
+            <img src="assets/imgs/robotarm.svg" alt="robotarm の図" />
+          </div>
+          <div class="work-head">
+            <h3 class="work-title">robotarm</h3>
+            <span class="work-kind">ハードウェア制御</span>
+          </div>
+          <p class="work-row"><span class="work-label">課題</span>LiDAR で部屋の中の物を見つけ、把持して運ぶ 6 軸アームを設計する。</p>
+          <p class="work-row"><span class="work-label">やったこと</span>FreeCAD で完全パラメトリックに設計し、単一のパラメータ表から STL・URDF・2D 図面を生成する仕組みを作った。</p>
+          <p class="work-row"><span class="work-label">結果</span>設計値と生成物が一致することを 6 項目の自動検証で確認。パラメータ 1 か所の変更が図面・モデル・URDF に同時に反映される。</p>
+          <div class="project-tags">
+            <span class="tag">Python</span><span class="tag">FreeCAD</span><span class="tag">URDF</span>
+          </div>
+          <a class="work-link" href="https://github.com/Kohaku912/robotarm" target="_blank" rel="noopener">GitHub で見る →</a>
+        </article>
+
       </div>
-      <p class="exp-note">
-        ※ 実務経験の詳細（担当工程・使用技術・成果）は <a href="resume.html">職務経歴書</a> にまとめています。
-      </p>
     </section>
 
+    <!-- ===== 3. スキル ===== -->
     <section id="skill" class="section skills">
-      <h2>SKILLS</h2>
+      <h2>スキル</h2>
       <div class="icon-section">
         <div class="icon-grid">
-          <div class="glow-box orange skill-HTML5">
+<div class="glow-box orange skill-HTML5">
             <svg fill="#000000" version="1.1" xmlns="http://www.w3.org/2000/svg"
               xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 512 512" enable-background="new 0 0 512 512"
               xml:space="preserve">
@@ -287,359 +302,213 @@
         </div>
       </div>
       <div class="skill-title">SKILL</div>
-      <div class="skill-note">
+      <table class="skill-table">
+        <tbody>
+          <tr>
+            <th>Python</th>
+            <td>約 4 年。AEGIS は 533 モジュール、TaskFlow API はテスト 30 件・カバレッジ 97%。FastAPI / SQLAlchemy / Pydantic / pytest。</td>
+          </tr>
+          <tr>
+            <th>C（C17）</th>
+            <td>ratelimit を約 120 行・依存ライブラリなしで実装。17 ケース / 70 チェックが成功し、ASan・UBSan・valgrind でクリーン。</td>
+          </tr>
+          <tr>
+            <th>TypeScript / JavaScript</th>
+            <td>AEGIS のクライアント、RealNote、本サイト。</td>
+          </tr>
+          <tr>
+            <th>Kotlin / Java</th>
+            <td>Android アプリ（Timer / MoneyFinder）、音声アシスタント JARVIS。</td>
+          </tr>
+          <tr>
+            <th>PHP</th>
+            <td>Nextcloud アプリ earthquake_notify。外部 API 連携・HTML スクレイピング・キャッシュ。</td>
+          </tr>
+          <tr>
+            <th>インフラ・ツール</th>
+            <td>Git / GitHub Actions（CI）/ Docker / CMake + ctest / Linux コマンドライン。</td>
+          </tr>
+        </tbody>
+      </table>
+      <p class="skill-note">
         バックエンド：FastAPI・SQLAlchemy・REST API 設計・JWT 認証・pytest・Docker／
-        DB：SQLite・PostgreSQL（学習中）／
-        その他：Git・GitHub Actions・Linux
-      </div>
+        DB：SQLite・PostgreSQL（学習中）／その他：LiDAR を用いたハードウェア制御・Gemini API 連携
+      </p>
     </section>
-    <section id="works" class="section works">
-      <h2 class="works-title">WORKS</h2>
-      <div class="carousel-container swiper">
-        <div class="swiper-wrapper">
-          <a class="swiper-slide project-card" href="https://github.com/Kohaku912/AEGIS" target="_blank" rel="noopener">
-            <div class="project-image">
-              <img src="assets/imgs/aegis.svg" alt="AEGIS の画像">
-            </div>
-            <h3 class="project-title">AEGIS</h3>
-            <p class="project-description">
-              6サーバー構成の自律型 AI アシスタント。Python / Rust / Kotlin / TypeScript を gRPC で接続。533 モジュール・テスト 657 件・設計文書 56 件。
-            </p>
-            <div class="project-tags">
-              <span class="tag">Python</span>
-              <span class="tag">Rust</span>
-              <span class="tag">gRPC</span>
-              <span class="tag">Kotlin</span>
-            </div>
-          </a>
-          <a class="swiper-slide project-card" href="https://github.com/Kohaku912/ratelimit" target="_blank" rel="noopener">
-            <div class="project-image">
-              <img src="assets/imgs/ratelimit.svg" alt="ratelimit の画像">
-            </div>
-            <h3 class="project-title">ratelimit</h3>
-            <p class="project-description">
-              C17 で書いたトークンバケット方式のレートリミッタ。依存ライブラリなし・約 120 行。70 チェックが全て成功し、ASan / UBSan / valgrind でクリーン。
-            </p>
-            <div class="project-tags">
-              <span class="tag">C17</span>
-              <span class="tag">CMake</span>
-              <span class="tag">ASan</span>
-              <span class="tag">CI</span>
-            </div>
-          </a>
-          <a class="swiper-slide project-card" href="https://github.com/Kohaku912/earthquake_notify" target="_blank" rel="noopener">
-            <div class="project-image">
-              <img src="assets/imgs/earthquake-notify.svg" alt="earthquake_notify の画像">
-            </div>
-            <h3 class="project-title">earthquake_notify</h3>
-            <p class="project-description">
-              Nextcloud 用の地震情報配信アプリ。P2PQuake を常時監視し Talk へ一斉通知。外部 API 連携・スクレイピング・キャッシュを実装。
-            </p>
-            <div class="project-tags">
-              <span class="tag">PHP</span>
-              <span class="tag">Nextcloud</span>
-              <span class="tag">systemd</span>
-            </div>
-          </a>
-          <a class="swiper-slide project-card" href="https://github.com/Kohaku912/robotarm" target="_blank" rel="noopener">
-            <div class="project-image">
-              <img src="assets/imgs/robotarm.svg" alt="robotarm の画像">
-            </div>
-            <h3 class="project-title">robotarm</h3>
-            <p class="project-description">
-              FreeCAD で完全パラメトリック設計した 6 軸ロボットアーム。単一のパラメータ表から STL・URDF・2D 図面を生成し、6 項目を自動検証。
-            </p>
-            <div class="project-tags">
-              <span class="tag">Python</span>
-              <span class="tag">FreeCAD</span>
-              <span class="tag">URDF</span>
-            </div>
-          </a>
-          <a class="swiper-slide project-card" href="https://github.com/Kohaku912/taskflow-api" target="_blank" rel="noopener">
-            <div class="project-image">
-              <img src="assets/imgs/taskflow-api.svg" alt="TaskFlow API の画像">
-            </div>
-            <h3 class="project-title">TaskFlow API</h3>
-            <p class="project-description">
-              FastAPI 製のタスク管理 REST API。JWT 認証・検索・ページング・テストカバレッジ 97%・Docker・CI まで自作。
-            </p>
-            <div class="project-tags">
-              <span class="tag">Python</span>
-              <span class="tag">FastAPI</span>
-              <span class="tag">SQLAlchemy</span>
-              <span class="tag">Docker</span>
-            </div>
-          </a>
-          <a class="swiper-slide project-card" href="https://github.com/Kohaku912/JARVIS/tree/main" target="_blank" rel="noopener">
-            <div class="project-image">
-              <img src="https://github.com/Kohaku912/JARVIS/blob/main/images/home.jpg?raw=true"
-                alt="JARVISの画像">
-            </div>
-            <h3 class="project-title">JARVIS（仮）</h3>
-            <p class="project-description">映画「アイアンマン」のJARVISのようなAIアシスタント</p>
-            <div class="project-tags">
-              <span class="tag">Kotlin</span>
-              <span class="tag">GeminiApi</span>
-              <span class="tag">porcupine</span>
-            </div>
-          </a>
-          <a class="swiper-slide project-card" href="https://ai-friend-theta.vercel.app/" target="_blank">
-            <div class="project-image">
-              <img src="https://raw.githubusercontent.com/Kohaku912/portfolio/refs/heads/main/assets/imgs/manatomo.png"
-                alt="RealNoteの画像">
-            </div>
-            <h3 class="project-title">まなとも</h3>
-            <p class="project-description">それぞれの教科のAIが会話中に問題を出してくれます。</p>
-            <div class="project-tags">
-              <span class="tag">React</span>
-              <span class="tag">GeminiApi</span>
-              <span class="tag">Vercel</span>
-            </div>
-          </a>
-          <a class="swiper-slide project-card" href="https://github.com/Kohaku912/RealNote" target="_blank">
-            <div class="project-image">
-              <img src="https://raw.githubusercontent.com/Kohaku912/RealNote/refs/heads/main/Screenshot%202025-08-31%20233123.png"
-                alt="RealNoteの画像">
-            </div>
-            <h3 class="project-title">RealNote</h3>
-            <p class="project-description">ちぎれるメモ帳</p>
-            <div class="project-tags">
-              <span class="tag">HTML</span>
-              <span class="tag">CSS</span>
-              <span class="tag">JavaScript</span>
-            </div>
-          </a>
-          <a class="swiper-slide project-card" href="https://github.com/Kohaku912/Timer" target="_blank">
-            <div class="project-image">
-              <img src="https://raw.githubusercontent.com/Kohaku912/portfolio/refs/heads/main/assets/imgs/timer.png"
-                alt="Timer の画像">
-            </div>
-            <h3 class="project-title">Timer</h3>
-            <p class="project-description">幼児でも残り時間がわかるタイマーアプリ</p>
-            <div class="project-tags">
-              <span class="tag">Android</span>
-              <span class="tag">Kotlin</span>
-            </div>
-          </a>
 
-          <a class="swiper-slide project-card" href="https://github.com/Kohaku912/speedyfingers" target="_blank">
-            <div class="project-image">
-              <img
-                src="https://raw.githubusercontent.com/Kohaku912/portfolio/refs/heads/main/assets/imgs/speedyfingers.png"
-                alt="SpeedyFingers の画像">
-            </div>
-            <h3 class="project-title">SpeedyFingers</h3>
-            <p class="project-description">プログラミング用語が出てくるタイピングゲーム</p>
-
-            <div class="project-tags">
-              <span class="tag">JavaScript</span>
-              <span class="tag">HTML5</span>
-              <span class="tag">CSS3</span>
-            </div>
-          </a>
-          <a class="swiper-slide project-card" href="https://github.com/Kohaku912/MyMuseum" target="_blank">
-            <div class="project-image">
-              <img src="https://raw.githubusercontent.com/Kohaku912/portfolio/refs/heads/main/assets/imgs/museum.png"
-                alt="MyMuseum の画像">
-            </div>
-            <h3 class="project-title">MyMuseum</h3>
-            <p class="project-description">Webglを利用した自分だけの3Dミュージアム</p>
-
-            <div class="project-tags">
-              <span class="tag">HTML</span>
-              <span class="tag">JavaScript</span>
-              <span class="tag">Webgl</span>
-            </div>
-          </a>
-          <a class="swiper-slide project-card none">
-            <div class="project-image">
-              <img src="https://raw.githubusercontent.com/Kohaku912/portfolio/refs/heads/main/assets/imgs/detection.png"
-                alt="MoneyFinder の画像">
-            </div>
-            <h3 class="project-title">MoneyFinder</h3>
-            <p class="project-description">スマホ画面内のお金を見つけるアプリ</p>
-
-            <div class="project-tags">
-              <span class="tag">Android</span>
-              <span class="tag">Java</span>
-              <span class="tag">TensorFlow</span>
-            </div>
-          </a>
+    <!-- ===== 4. 実務経験 ===== -->
+    <section id="experience" class="section">
+      <h2>実務経験</h2>
+      <div class="exp-list">
+        <div class="exp-card">
+          <div class="exp-head">
+            <h3 class="exp-company">株式会社ナノベース</h3>
+            <span class="exp-badge">業務委託</span>
+          </div>
+          <div class="exp-meta">2026年6月頃 ｜ 約1か月 ｜ フルスタックエンジニア</div>
+          <p class="exp-desc">
+            要件の確認から設計・実装・動作確認までを担当し、期限内に納品しました。
+            報連相・レビュー対応・納期管理という、実務の進め方を身につけました。
+          </p>
+          <a class="exp-link" href="https://www.nanobase.co.jp/" target="_blank" rel="noopener">https://www.nanobase.co.jp/</a>
         </div>
-        <div class="swiper-pagination"></div>
+        <div class="exp-card">
+          <div class="exp-head">
+            <h3 class="exp-company">株式会社ビーライズ</h3>
+            <span class="exp-badge">インターン</span>
+          </div>
+          <div class="exp-meta">2025年8月頃 ｜ 約2週間 ｜ XRエンジニア</div>
+          <p class="exp-desc">
+            XR 領域の開発にインターンとして参加しました。チームでの開発フローと、実機を使った検証の進め方を経験しています。
+          </p>
+          <a class="exp-link" href="https://berise.co.jp/" target="_blank" rel="noopener">https://berise.co.jp/</a>
+        </div>
       </div>
+      <p class="exp-note">
+        ※ インターンと業務委託を合わせて約 1.5 か月。担当工程・使用技術・成果の詳細は
+        <a href="resume.html">職務経歴書</a> にまとめています。
+      </p>
     </section>
-    <section id="timeline" class="section achievements">
-      <h2>Achivements</h2>
+
+    <!-- ===== 5. その他 3 件 ===== -->
+    <section id="others" class="section">
+      <h2>その他の制作物</h2>
+      <p class="section-sub">受賞した 2 件と、低レイヤの実装。</p>
+      <div class="mini-grid">
+        <a class="mini-card" href="https://ai-friend-theta.vercel.app/" target="_blank" rel="noopener">
+          <div class="mini-head">
+            <h3>まなとも</h3><span class="mini-award">優秀賞</span>
+          </div>
+          <p>各教科の AI が会話の中で問題を出題する学習アプリ。第6回 学力向上アプリコンテスト 優秀賞。</p>
+          <div class="project-tags">
+            <span class="tag">React</span><span class="tag">Gemini API</span><span class="tag">Vercel</span>
+          </div>
+        </a>
+        <a class="mini-card" href="https://github.com/Kohaku912/RealNote" target="_blank" rel="noopener">
+          <div class="mini-head">
+            <h3>RealNote</h3><span class="mini-award">優秀賞</span>
+          </div>
+          <p>「ちぎれる」操作感のメモ帳。ZenStudy 動く web ページコンテスト 優秀賞。</p>
+          <div class="project-tags">
+            <span class="tag">HTML</span><span class="tag">CSS</span><span class="tag">JavaScript</span>
+          </div>
+        </a>
+        <a class="mini-card" href="https://github.com/Kohaku912/ratelimit" target="_blank" rel="noopener">
+          <div class="mini-head">
+            <h3>ratelimit</h3><span class="mini-award">C17</span>
+          </div>
+          <p>依存ライブラリなし・約 120 行のトークンバケット方式レートリミッタ。17 ケース / 70 チェックが全て成功し、ASan・UBSan・valgrind でクリーン。</p>
+          <div class="project-tags">
+            <span class="tag">C（C17）</span><span class="tag">CMake</span><span class="tag">ctest</span>
+          </div>
+        </a>
+      </div>
+      <p class="more-link">
+        その他の制作物（earthquake_notify / JARVIS / Timer / SpeedyFingers / MyMuseum / MoneyFinder）は
+        <a href="https://github.com/Kohaku912?tab=repositories" target="_blank" rel="noopener">GitHub</a> で公開しています。
+      </p>
+    </section>
+
+    <!-- ===== 6. 資格・受賞 ===== -->
+    <section id="achievements" class="section achievements">
+      <h2>資格・受賞</h2>
       <div class="timeline-container">
         <div class="timeline-item">
           <div class="timeline-content" onclick="openAchievementDetail('gakuryoku-2025')">
-            <span class="achievement-icon"><img
-                src="https://lh3.googleusercontent.com/sitesv/AAzXCkedfHPJOQgij6AwGFZmZFaTzYv-1C5dWZoHH2bsBwpk6sdCRqgMY-ciFQNAB_SC30i2SxbsZyvb2CjCBug5FQBfFoxxTkcoduizhZa9J3d5agSkaGYt4ABNUn-zXlUruhVeIuF2h4L4paWB6VqHFGPgZnY3oZP3fL_v-H5i_rHFHXtVyI4u06M5=w16383"></span>
-            <div class="timeline-date">October 2025</div>
-            <div class="timeline-title">第6回学力向上アプリコンテスト</div>
-            <div class="timeline-desc">第6回学力向上アプリコンテストにて、「まなとも」が優秀賞を受賞しました。</div>
-            <div class="timeline-tags">
-              <span class="tag">コンテスト</span>
-            </div>
+            <span class="achievement-icon">🏆</span>
+            <div class="timeline-date">2025年10月</div>
+            <div class="timeline-title">第6回 学力向上アプリコンテスト 優秀賞</div>
+            <div class="timeline-desc">「まなとも」が優秀賞を受賞しました。</div>
+            <div class="timeline-tags"><span class="tag">コンテスト</span></div>
+            <div class="click-hint">Click to view details →</div>
           </div>
         </div>
         <div class="timeline-item">
           <div class="timeline-content" onclick="openAchievementDetail('webappcontest-summer-2025')">
             <span class="achievement-icon"><img
                 src="https://progedu.github.io/webappcontest/2025/summer/entry/assets/img/logo.png"></span>
-            <div class="timeline-date">October 2025</div>
-            <div class="timeline-title">ZenStudy 動くwebページコンテスト</div>
-            <div class="timeline-desc">ZenStudy 動くwebページコンテスト 角川ドワンゴ学園部門にて、「RealNote」が優秀賞を受賞しました。</div>
-            <div class="timeline-tags">
-              <span class="tag">コンテスト</span>
-            </div>
+            <div class="timeline-date">2025年10月</div>
+            <div class="timeline-title">ZenStudy 動く web ページコンテスト 優秀賞</div>
+            <div class="timeline-desc">角川ドワンゴ学園部門にて、「RealNote」が優秀賞を受賞しました。</div>
+            <div class="timeline-tags"><span class="tag">コンテスト</span></div>
+            <div class="click-hint">Click to view details →</div>
           </div>
         </div>
         <div class="timeline-item">
           <div class="timeline-content" onclick="">
             <span class="achievement-icon"><img
                 src="https://cdn-ak.f.st-hatena.com/images/fotolife/t/trhnmr/20220127/20220127124429.png"></span>
-            <div class="timeline-date">September 2025</div>
-            <div class="timeline-title">基本情報技術者</div>
-            <div class="timeline-desc">基本情報技術者資格を取得しました。</div>
-            <div class="timeline-tags">
-              <span class="tag">資格</span>
-            </div>
+            <div class="timeline-date">2025年9月</div>
+            <div class="timeline-title">基本情報技術者試験 合格</div>
+            <div class="timeline-desc">基本情報技術者試験に合格しました。</div>
+            <div class="timeline-tags"><span class="tag">資格</span></div>
           </div>
         </div>
         <div class="timeline-item">
           <div class="timeline-content" onclick="openAchievementDetail('atcoder-brown')">
             <span class="achievement-icon">📈</span>
-            <div class="timeline-date">August 2025</div>
-            <div class="timeline-title">Atcoder Light blue</div>
-            <div class="timeline-desc">Atcoderで水色コーダーになりました。</div>
+            <div class="timeline-date">2025年8月</div>
+            <div class="timeline-title">AtCoder 水色（Rating 1249）</div>
+            <div class="timeline-desc">AtCoder で水色コーダーになりました。2025年3月の茶色から約 5 か月での到達です。</div>
             <div class="timeline-tags">
-              <span class="tag">Atcoder</span>
-              <span class="tag">Algolithm</span>
-              <span class="tag">Growth</span>
+              <span class="tag">AtCoder</span><span class="tag">Algorithm</span><span class="tag">継続</span>
             </div>
             <div class="click-hint">Click to view details →</div>
           </div>
         </div>
-        <div class="timeline-item">
-          <div class="timeline-content" onclick="openAchievementDetail('atcoder-brown')">
-            <span class="achievement-icon">📈</span>
-            <div class="timeline-date">July 2025</div>
-            <div class="timeline-title">Atcoder Green</div>
-            <div class="timeline-desc">Atcoderで緑色コーダーになりました。</div>
-            <div class="timeline-tags">
-              <span class="tag">Atcoder</span>
-              <span class="tag">Algolithm</span>
-              <span class="tag">Growth</span>
-            </div>
-            <div class="click-hint">Click to view details →</div>
-          </div>
-        </div>
-        <div class="timeline-item">
-          <div class="timeline-content" onclick="openAchievementDetail('atcoder-brown')">
-            <span class="achievement-icon">📈</span>
-            <div class="timeline-date">March 2025</div>
-            <div class="timeline-title">Atcoder Brown</div>
-            <div class="timeline-desc">Atcoderで茶色コーダーになりました。</div>
-            <div class="timeline-tags">
-              <span class="tag">Atcoder</span>
-              <span class="tag">Algolithm</span>
-              <span class="tag">Growth</span>
-            </div>
-            <div class="click-hint">Click to view details →</div>
-          </div>
-        </div>
-
         <div class="timeline-item">
           <div class="timeline-content" onclick="openAchievementDetail('webappcontest-winter-2025')">
             <span class="achievement-icon"><img
                 src="https://progedu.github.io/webappcontest/2024/winter/entry/assets/img/lambda.png"></span>
-            <div class="timeline-date">March 2025</div>
-            <div class="timeline-title">ラムダ技術部特別賞</div>
-            <div class="timeline-desc">ZEN Study 動くWebアプリコンテスト冬でラムダ技術部特別賞を受賞。</div>
-            <div class="timeline-tags">
-              <span class="tag">Web Development</span>
-              <span class="tag">Innovation</span>
-            </div>
+            <div class="timeline-date">2025年3月</div>
+            <div class="timeline-title">ZEN Study 動く Web アプリコンテスト 冬 ラムダ技術部特別賞</div>
+            <div class="timeline-desc">ZEN Study 動く Web アプリコンテスト冬でラムダ技術部特別賞を受賞しました。</div>
+            <div class="timeline-tags"><span class="tag">コンテスト</span></div>
             <div class="click-hint">Click to view details →</div>
+          </div>
+        </div>
+        <div class="timeline-item">
+          <div class="timeline-content" onclick="">
+            <span class="achievement-icon">🚗</span>
+            <div class="timeline-date">2026年9月</div>
+            <div class="timeline-title">普通自動車第一種運転免許（AT限定）</div>
+            <div class="timeline-desc">普通自動車第一種運転免許（AT限定）を取得しました。</div>
+            <div class="timeline-tags"><span class="tag">資格</span></div>
           </div>
         </div>
       </div>
     </section>
+
+    <!-- ===== 7. 連絡 ===== -->
+    <section id="contact" class="section contact">
+      <h2>お仕事のご相談</h2>
+      <p class="cta-lead">
+        <strong>2027年4月入社</strong>で、正社員のポジションを探しています。職種は問いません。<br>
+        フルリモートを希望します（週 1 回までの出社には対応できます）。
+      </p>
+      <div class="contact-actions">
+        <a class="hero-btn" href="mailto:k3320138@gmail.com">メールを送る</a>
+        <a class="hero-btn ghost" href="resume.html">職務経歴書（印刷 / PDF 保存）</a>
+      </div>
+      <div class="contact-list">
+        <a href="mailto:k3320138@gmail.com">k3320138@gmail.com</a>
+        <a href="https://github.com/Kohaku912" target="_blank" rel="noopener">github.com/Kohaku912</a>
+        <a href="https://atcoder.jp/users/tatuki912" target="_blank" rel="noopener">AtCoder: tatuki912</a>
+      </div>
+    </section>
   </main>
-  <div class="page-indicator">
-    <span class="dot" data-index="0"></span>
-    <span class="dot" data-index="1"></span>
-    <span class="dot" data-index="2"></span>
-    <span class="dot" data-index="3"></span>
-    <span class="dot" data-index="4"></span>
-    <span class="dot" data-index="5"></span>
-  </div>
+
+  <nav class="page-indicator" aria-label="セクション">
+    <a class="dot" href="#hero" data-target="hero" aria-label="トップ"></a>
+    <a class="dot" href="#works" data-target="works" aria-label="代表作"></a>
+    <a class="dot" href="#skill" data-target="skill" aria-label="スキル"></a>
+    <a class="dot" href="#experience" data-target="experience" aria-label="実務経験"></a>
+    <a class="dot" href="#others" data-target="others" aria-label="その他の制作物"></a>
+    <a class="dot" href="#achievements" data-target="achievements" aria-label="資格・受賞"></a>
+    <a class="dot" href="#contact" data-target="contact" aria-label="連絡"></a>
+  </nav>
 
   <script src="script.js"></script>
-  <script src="https://unpkg.com/swiper@8/swiper-bundle.min.js"></script>
-  <script>
-    document.addEventListener('DOMContentLoaded', () => {
-      VANTA.BIRDS({
-        el: "#profile",
-        mouseControls: true,
-        touchControls: true,
-        gyroControls: false,
-        minHeight: 200.00,
-        minWidth: 200.00,
-        scale: 1.00,
-        scaleMobile: 1.00,
-        color1: 0xa400ff,
-        backgroundColor: "#0d0d0d",
-        speedLimit: 4.00,
-        quantity: 2.00
-      })
-      VANTA.NET({
-        el: "#skill",
-        mouseControls: true,
-        touchControls: true,
-        gyroControls: false,
-        minHeight: 200.00,
-        minWidth: 200.00,
-        scale: 1.00,
-        scaleMobile: 1.00,
-        backgroundColor: "#0d0d0d",
-        points: 10.00,
-        maxDistance: 20.00,
-        showDots: false
-      })
-      VANTA.BIRDS({
-        el: "#works",
-        mouseControls: true,
-        touchControls: true,
-        gyroControls: false,
-        minHeight: 200.00,
-        minWidth: 200.00,
-        scale: 1.00,
-        scaleMobile: 1.00,
-        backgroundColor: "#0d0d0d",
-        speedLimit: 7.00,
-        color1: 0x3c00ff,
-        quantity: 5.00
-      })
-      new Swiper('.carousel-container.swiper', {
-        direction: 'horizontal',
-        slidesPerView: 'auto',
-        centeredSlides: true,
-        spaceBetween: 30,
-        simulateTouch: true,
-        roundLengths: true,
-        loop: true,
-        observer: true,
-        updateOnImagesReady: true,
-        pagination: {
-          el: '.swiper-pagination',
-          clickable: true,
-        },
-      });
-    });
-  </script>
 
 </body>
 
